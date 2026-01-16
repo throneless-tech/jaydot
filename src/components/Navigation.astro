@@ -287,8 +287,8 @@ import Logo from './Logo.astro'
         .has-dropdown > button:hover,
         .has-dropdown > button:focus-visible {
           text-decoration: underline;
-          text-decoration-style: wavy;
-          text-decoration-thickness: 1px;
+          // text-decoration-style: wavy;
+          text-decoration-thickness: 2px;
           text-underline-offset: 7px;
         }
 
@@ -304,12 +304,15 @@ import Logo from './Logo.astro'
           margin-block-start: calc(var(--space-4xs) * -1);
           border: 1px solid var(--foreground-color);
           border-radius: var(--radius-large);
+          background-color: var(--foreground-color);
           padding: var(--space-4xs) var(--space-2xs);
+          color: var(--color-light-olive-100) !important;
           text-decoration: none;
 
           &:where(:hover, :focus-visible) {
-            background-color: var(--foreground-color);
-            color: var(--background-color) !important;
+            border: 1px solid var(--color-orange-500);
+            background-color: var(--color-orange-500);
+            color: var(--brand-light-olive) !important;
           }
         }
       }

@@ -2,10 +2,12 @@
   color-scheme: light;
   interpolate-size: allow-keywords;
 
-  // brand colors (change these to your own brand colors)
-  --brand-primary: #d648ff;
-  --brand-secondary: #00d1b7;
-  --brand-neutral: #b9bec4;
+  // brand colors 
+  --brand-primary: #10588F;
+  --brand-secondary: #A2A77F;
+  --brand-neutral: #1F2D5C;
+  --brand-light-olive: #E3E7AF;
+  --brand-orange: #BA5C12;
 
   // pallet brand
   --color-primary-100: oklch(from var(--brand-primary) 90% c h);
@@ -13,11 +15,24 @@
   --color-primary-300: oklch(from var(--brand-primary) 70% c h);
   --color-primary-400: oklch(from var(--brand-primary) 60% c h);
   --color-primary-500: oklch(from var(--brand-primary) 50% c h);
+
   --color-secondary-100: oklch(from var(--brand-secondary) 90% c h);
   --color-secondary-200: oklch(from var(--brand-secondary) 80% c h);
   --color-secondary-300: oklch(from var(--brand-secondary) 70% c h);
   --color-secondary-400: oklch(from var(--brand-secondary) 60% c h);
   --color-secondary-500: oklch(from var(--brand-secondary) 50% c h);
+
+  --color-orange-100: oklch(from var(--brand-orange) 90% c h);
+  --color-orange-200: oklch(from var(--brand-orange) 80% c h);
+  --color-orange-300: oklch(from var(--brand-orange) 70% c h);
+  --color-orange-400: oklch(from var(--brand-orange) 60% c h);
+  --color-orange-500: oklch(from var(--brand-orange) 50% c h);
+
+  --color-light-olive-100: oklch(from var(--brand-light-olive) 90% c h);
+  --color-light-olive-200: oklch(from var(--brand-light-olive) 80% c h);
+  --color-light-olive-300: oklch(from var(--brand-light-olive) 70% c h);
+  --color-light-olive-400: oklch(from var(--brand-light-olive) 60% c h);
+  --color-light-olive-500: oklch(from var(--brand-light-olive) 50% c h);
 
   // pallet neutral
   --color-neutral-100: oklch(from var(--brand-neutral) 100% 0 0);

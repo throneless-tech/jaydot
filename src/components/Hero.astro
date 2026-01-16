@@ -15,15 +15,15 @@ interface Props {
   src?: string
 }
 
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
+const { src = '/jaydot-windows.jpg' }: Props = Astro.props
 ---
 
-<section class="hero my-24">
+<section class="hero my-4 md:mt-12 md:mb-30">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-8 md:items-start">
-        <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Accessible</span> Starter for Astro</slot>
+    <div class="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2">
+      <div class="flex flex-col gap-8 md:items-start">
+        <h1 class="text-6xl lg:text-8xl">
+          <slot><span class="text-gradient">Affordable housing</span> solutions for DC</slot>
         </h1>
         <div class="flex flex-col gap-3 min-[500px]:flex-row">
           <Link
@@ -33,8 +33,8 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
             animateOnHover
             animationType="boop"
           >
-            <Icon aria-hidden="true" name="lucide:star" size="1.5rem" />
-            Star on GitHub
+            <Icon aria-hidden="true" name="lucide:house-heart" size="1.5rem" />
+            See how we work
           </Link>
           <Link
             href="https://accessible-astro.incluud.dev/"
@@ -43,12 +43,20 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
             animateOnHover
             animationType="boop"
           >
-            <Icon aria-hidden="true" name="lucide:bookmark" size="1.5rem" />
-            Read the docs
+            <Icon aria-hidden="true" name="lucide:mail" size="1.5rem" />
+            Reach out now
           </Link>
         </div>
       </div>
-      <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
+      <Image
+        class="hero-image"
+        src={src}
+        alt=""
+        decoding="async"
+        width={1000}
+        height={400}
+        loading="eager"
+      />
     </div>
   </div>
 </section>
@@ -58,11 +66,22 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
     text-wrap: unset;
   }
 
+  :global(.button.type-secondary) {
+    border-color: var(--brand-secondary);
+    background-color: var(--color-secondary-100);
+    color: #000;
+  }
+
+  .hero-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
   .text-gradient {
     background: linear-gradient(
       315deg,
-      light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
-      light-dark(var(--color-secondary-300), var(--color-primary-200))
+      light-dark(var(--brand-primary), var(--color-secondary-100)) 25%,
+      light-dark(var(--brand-secondary), var(--color-primary-200))
     );
     background-clip: border-box;
     -webkit-background-clip: text;
