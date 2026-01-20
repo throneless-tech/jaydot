@@ -10,7 +10,16 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro-starter.incluud.dev', // FIXME
-  integrations: [compress(), icon(), mdx(), sitemap()],
+  integrations: [
+    compress(),
+    icon({
+      include: {
+        iconDir: "src/assets/icons",
+      },
+    }),
+    mdx(),
+    sitemap()
+  ],
   vite: {
     css: {
       preprocessorOptions: {

@@ -1,0 +1,237 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading, Notification } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import CallToAction from '@components/CallToAction.astro'
+
+// Get all portfolio projects
+const projects = await getCollection('projects')
+
+// Define static pages with their descriptions
+const staticPages = [
+  {
+    title: 'Build relationships',
+    description:
+      'Relationships are the cornerstone of our work (and lives), and we value them above all else. We build trust and authentic connections with people at every level of our work, especially across lines of power and difference. ',
+  },
+  {
+    title: 'Collaborate',
+    description:
+      'We relish opportunities to collaborate with and learn from one another--both our team and those with whom we work. We aim to keep everyone in the loop and reach out when we’re not sure about something, knowing that in doing so we are building our collective knowledge and impact.',
+  },
+  {
+    title: 'Be accountable',
+    description:
+      'Put simply, we do what we say we’re going to do. And when we occasionally fall short, we own that, take corrective action, and do better next time. For us, accountability runs up, down, and sideways.',
+  },
+  {
+    title: 'Focus on the person',
+    description:
+      'At the center of all systems are people, and we strive to never lose sight of that. Whether it’s going off the agenda when a colleague seems like they’re not okay, or making sure someone’s basic needs are met even when it’s a little outside of our scope, we adapt to the needs of the person at the center of it all and offer each other empathy and grace.',
+  },
+  {
+    title: 'Engage in direct service',
+    description:
+      'Every Jaydot team member spends valuable time on the ground. We work hard to witness and understand the realities that our clients—and staff—face every day so we can most effectively address them. ',
+  },
+]
+---
+
+<DefaultLayout
+  title="About"
+  description="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices."
+>
+  <PageHeader
+    title="About Us"
+    subtitle="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears."
+    bgType="gradient"
+  />
+
+  <section class="my-16">
+    <div class="container space-y-12">
+      <div>
+        <Heading level="h2" class="mb-6">Our history</Heading>
+        <div class="mb-10">
+          <Image
+            class="float-left w-100 md:mr-6 md:mb-6"
+            src="/help-usa.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+          <div>
+            <p class="mb-4">
+              With the first link, the chain is forged. The first speech censored, the first thought forbidden, the
+              first freedom denied, chains us all irrevocably. Your will to survive, your love of life, your passion to
+              know ... Everything that is truest and best in all species of beings has been revealed to you.
+            </p>
+            <p class="mb-4">
+              Those are the qualities that make a civilization worthy to survive. Look at these three words written
+              larger than all the rest, and with special pride never written before or since -- tall words, proudly
+              saying "We the people" ... these words and the words that follow ... must apply to everyone or they mean
+              nothing. I object to intellect without discipline; I object to power without constructive purpose. Make It
+              So!
+            </p>
+            <p class="mb-4">
+              When dreams become more important than reality, you give up travel, building, creating; you even forget
+              how to repair the machines left behind by your ancestors. You just sit living and reliving other lives
+              left behind in the thought records. Leave bigotry in your quarters; there's no room for it on the bridge.
+              You know the greatest danger facing us is ourselves, and irrational fear of the unknown. There is no such
+              thing as the unknown. Only things temporarily hidden, temporarily not understood.
+            </p>
+            <p>
+              Now, I don't pretend to tell you how to find happiness and love, when every day is a struggle to survive.
+              But I do insist that you do survive, because the days and the years ahead are worth living for! For
+              everything, there is a first time. Do you know the old Klingon proverb that revenge is a dish best served
+              cold? It is very cold — in space.
+            </p>
+          </div>
+        </div>
+        <Heading level="h2" class="mb-2">Our values</Heading>
+        <p class="italic">We strive to embody these six core values in our daily work.</p>
+        <div class="space-between mt-12 mb-20 flex flex-col items-center gap-6 md:flex-row">
+          <div>
+            <Heading level="h3" class="mb-2">Dignity</Heading>
+            <p>We value the inherent dignity, humanity, self-determination, and worth of all people.</p>
+          </div>
+          <Image
+            class="w-100"
+            src="/dignity.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+        </div>
+        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
+          <Image
+            class="w-100"
+            src="/justice.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+          <div>
+            <Heading level="h3" class="mb-2">Justice</Heading>
+            <p>
+              Many of the challenges we seek to address are a direct result of intersecting systems of oppression, in
+              particular anti-Black racism. We are committed to honoring people’s unique histories, perspectives, and
+              ways of being, and working towards a system in which all people are free.
+            </p>
+          </div>
+        </div>
+        <div class="space-between mb-20 flex flex-col items-center gap-6 md:flex-row">
+          <div>
+            <Heading level="h3" class="mb-2">Innovation</Heading>
+            <p>
+              We work to identify the gaps and possibilities in the systems within which we operate and work with our
+              partners to craft innovative solutions. We are not bound by what is—we adapt to changing circumstances and
+              focus on what can be.
+            </p>
+          </div>
+          <Image
+            class="w-100"
+            src="/innovation.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+        </div>
+        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
+          <Image
+            class="w-100"
+            src="/humility.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+          <div>
+            <Heading level="h3" class="mb-2">Humility</Heading>
+            <p>
+              We are always learning and thus making mistakes. We are committed to reflecting on, owning, and learning
+              from our collective experiences.
+            </p>
+          </div>
+        </div>
+        <div class="space-between mb-20 flex flex-col items-center gap-6 md:flex-row">
+          <div>
+            <Heading level="h3" class="mb-2">Power Sharing</Heading>
+            <p>
+              We strive to build the capacity of our team and the communities we work with by transferring our
+              collective knowledge, credibility, and power.
+            </p>
+          </div>
+          <Image
+            class="w-140"
+            src="/power-sharing.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+        </div>
+        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
+          <Image
+            class="w-140"
+            src="/holistic-thinking.jpg"
+            alt="FIXME"
+            decoding="async"
+            width={1000}
+            height={400}
+            loading="eager"
+          />
+          <div>
+            <Heading level="h3" class="mb-2">Holistic Thinking</Heading>
+            <p>
+              We are involved in all aspects of our field, from macro policy to the ground level, and believe that they
+              are deeply connected. We are dedicated to establishing connections to ensure that systems are responsive
+              to the needs of the communities with which we work.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <Heading level="h2" class="mb-2">Our approach</Heading>
+        <p class="mb-12 italic">
+          Just as important as what we do is how we do it. Here's our approach to achieving our mission.
+        </p>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {
+            staticPages.map((page) => (
+              <article>
+                <Heading level="h3" size="h6" class="mb-3">
+                  {page.title}
+                </Heading>
+                <p class="mb-3">{page.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <CallToAction />
+  </section>
+</DefaultLayout>
+
+<style>
+  article {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-large);
+    background-color: var(--background-color);
+    padding: 1rem;
+  }
+</style>
