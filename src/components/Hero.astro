@@ -22,7 +22,7 @@ const { src = '/jaydot-windows.jpg' }: Props = Astro.props
   <div class="container">
     <div class="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2">
       <div class="flex flex-col gap-8 md:items-start">
-        <h1 class="text-6xl lg:text-8xl">
+        <h1 class="text-6xl lg:text-8xl lg:leading-26">
           <slot><span class="text-gradient">Affordable housing</span> solutions for DC</slot>
         </h1>
         <div class="flex flex-col gap-3 min-[500px]:flex-row">
@@ -48,15 +48,7 @@ const { src = '/jaydot-windows.jpg' }: Props = Astro.props
           </Link>
         </div>
       </div>
-      <Image
-        class="hero-image"
-        src={src}
-        alt=""
-        decoding="async"
-        width={1000}
-        height={400}
-        loading="eager"
-      />
+      <Image class="hero-image" src={src} alt="" decoding="async" width={1000} height={400} loading="eager" />
     </div>
   </div>
 </section>

@@ -18,14 +18,14 @@ import { Icon } from 'astro-icon/components'
         <Form name="contact" action="/thank-you" method="post">
           <!-- Input field with custom validation message -->
           <Input
-            name="firstname"
-            label="First name"
+            name="name"
+            label="Name"
             required
-            data-validation="We need your first name to address you correctly"
+            data-validation="We need your name to address you correctly"
             autocomplete="given-name"
           />
 
-          <Input name="email" label="Email address" type="email" required autocomplete="email" />
+          <Input name="email" label="Email address" type="email" autocomplete="email" />
 
           <!-- Custom validation with pattern -->
           <Input name="phone" label="Phone number" type="tel" required data-validation-pattern="^[0-9]{10}$" />
@@ -86,8 +86,8 @@ import { Icon } from 'astro-icon/components'
         <div class="gap-2xs flex items-center">
           <Icon aria-hidden="true" name="lucide:clock" size={20} class="shrink-0" />
           <p>
-            <span class="font-bold">Business Hours:</span>
-            Monday - Friday, 9:00 AM - 5:00 PM EST
+            <span class="font-bold">Business hours:</span>
+            Monday - Friday, 8:00 AM - 6:00 PM EST
           </p>
         </div>
 
