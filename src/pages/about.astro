@@ -10,7 +10,7 @@ import CallToAction from '@components/CallToAction.astro'
 const projects = await getCollection('projects')
 
 // Define static pages with their descriptions
-const staticPages = [
+const approaches = [
   {
     title: 'Build relationships',
     description:
@@ -210,7 +210,7 @@ const staticPages = [
         </p>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {
-            staticPages.map((page) => (
+            approaches.map((page) => (
               <article>
                 <Heading level="h3" size="h6" class="mb-3">
                   {page.title}

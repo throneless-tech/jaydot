@@ -188,7 +188,7 @@ public/                  # Static assets (served as-is)
 ├── fonts/               # Atkinson Hyperlegible web fonts
 ├── posts/               # Blog post images
 ├── projects/            # Project images
-└── favicon.svg
+└── favicon.png
 ```
 
 ## Working with Components

@@ -23,12 +23,19 @@ interface Props {
    * @default "Get Started"
    */
   linkText?: string
+
+  /**
+   * The icon to display on the button
+   * @default "mailbox"
+   */
+  icon?: string
 }
 
 const {
   title = 'Potential partners and current participants: reach out now.',
   link = '/FIXME',
   linkText = 'Send us a message',
+  icon = 'mailbox',
 } = Astro.props
 ---
 
@@ -37,7 +44,7 @@ const {
     <Heading level="h2" class="text-center text-3xl md:text-6xl">{title}</Heading>
     <Link href={link} isButton size="lg" animateOnHover animationType="nudge">
       {linkText}
-      <Icon aria-hidden="true" name="lucide:mailbox" size="1.5rem" />
+      <Icon aria-hidden="true" name=`lucide:${icon}` size="1.5rem" />
     </Link>
   </div>
 </div>

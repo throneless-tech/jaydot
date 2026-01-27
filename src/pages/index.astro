@@ -2,12 +2,147 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
 import Feature from '@components/Feature.astro'
+import CallToAction from '@components/CallToAction.astro'
 import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
 import FeaturedProjects from '@components/FeaturedProjects.astro'
 import FeaturedPosts from '@components/FeaturedPosts.astro'
 import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
+import FeaturedPartners from '@components/FeaturedPartners.astro'
+
+import bba from '@assets/partners/bba.png'
+import CBE from '@assets/partners/CBE.jpg'
+import CNHED from '@assets/partners/CNHED.png'
+import CS from '@assets/partners/CS.png'
+import enterprise from '@assets/partners/enterprise.jpg'
+import gilbane from '@assets/partners/gilbane.png'
+import gwcf from '@assets/partners/gwcf.png'
+import HDC from '@assets/partners/HDC.png'
+import housingAnd from '@assets/partners/housing-and.png'
+import jubileeHousing from '@assets/partners/jubilee-housing.png'
+import lisner from '@assets/partners/lisner.gif'
+import NRP from '@assets/partners/NRP.png'
+import trueGround from '@assets/partners/true-ground.png'
+import TWHC from '@assets/partners/TWHC.png'
+import urbanAtlantic from '@assets/partners/urban-atlantic.png'
+import wesley from '@assets/partners/wesley.png'
+
+const partners = [
+  {
+    src: bba,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: CBE,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: CNHED,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: CS,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: enterprise,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: gilbane,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: gwcf,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: HDC,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: housingAnd,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: jubileeHousing,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: lisner,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: NRP,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: trueGround,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: TWHC,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: urbanAtlantic,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+  {
+    src: wesley,
+    alt: "Partner name's logo.",
+    url: '#FIXME',
+  },
+]
+
+const testimonials = [
+  {
+    title: 'John Doe',
+    description:
+      "Without followers, evil cannot spread. Curious, how often you humans manage to obtain that which you do not want. When the personality of a human is involved, exact predictions are hazardous. Instruments register only through things they're designed to register. Space still contains infinite unknowns. I'm Givin' Her All She's Got, Captain! You’ve never really faced death, have you?” “...No; not like this. I haven’t faced death. I’ve cheated death. I’ve tricked my way out of death and patted myself on the back for my ingenuity; I know nothing.",
+  },
+  {
+    title: 'Jane Doe',
+    description:
+      'Sometimes a feeling is all we humans have to go on. With the first link, the chain is forged. The first speech censored, the first thought forbidden, the first freedom denied, chains us all irrevocably. Improve a mechanical device and you may double productivity. But improve man, you gain a thousandfold. Khaaannnn! So much for the little training cruise.',
+  },
+  {
+    title: 'Firstname Lastname',
+    description:
+      "A library serves no purpose unless someone is using it. Insults are effective only where emotion is present. Humans do have an amazing capacity for believing what they choose -- and excluding that which is painful. Leave bigotry in your quarters; there's no room for it on the bridge. The intellect is not all... but its cultivation must come first, or the individual makes errors... wastes time in unprofitable pursuits. I speak of rights!",
+  },
+  {
+    title: 'Firstname Lastname',
+    description:
+      'A machine has none; a man must. If you do not grant him that right, you have brought us down to the level of the machine; indeed, you have elevated that machine above us! Improve a mechanical device and you may double productivity. But improve man, you gain a thousandfold. I object to intellect without discipline; I object to power without constructive purpose.',
+  },
+  {
+    title: 'Firstname Lastname',
+    description:
+      "Sometimes a feeling is all we humans have to go on. Genius doesn't work on an assembly line basis. Did Einstein, Kazanga or Sitar of Vulcan produce new and revolutionary theories on a regular schedule? You can't simply say, 'Today I will be brilliant.' A lie is a very poor way to say hello. To all mankind -- may we never find space so vast, planets so cold, heart and mind so empty that we cannot fill them with love and warmth. Khaaannnn! So much for the little training cruise.",
+  },
+  {
+    title: 'Firstname Lastname',
+    description:
+      "If we're going to be damned, let's be damned for what we really are. Insufficient facts always invite danger. When a child is taught, it's programmed with simple instructions, and at some point, if its mind develops properly, it exceeds the sum of what it was taught, thinks independently. Our species can only survive if we have obstacles to overcome. You remove those obstacles. Without them to strengthen us, we will weaken and die. Instruments register only through things they're designed to register. Space still contains infinite unknowns. Beam Me Up, Scotty!",
+  },
+]
 ---
 
 <DefaultLayout title="Home">
@@ -23,26 +158,60 @@ import { Icon } from 'astro-icon/components'
       </div>
     </div>
   </section>
-  <section class="mb-8 md:mb-16">
+  <section class="mb-8 md:mb-20">
     <div class="container">
       <Heading level="h2" class="mb-8">What we do</Heading>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <Feature icon="lucide:heart-handshake" title="Core values" url='#FIXME'>
+        <Feature icon="lucide:heart-handshake" title="Core values" url="#FIXME">
           Our core values are what guide us. Curious, how often you humans manage to obtain that which you do not want.
           I'm Givin' Her All She's Got, Captain! Nuclear Wessels!
         </Feature>
-        <Feature icon="lucide:book-heart" title="Our history" url='#FIXME'>
+        <Feature icon="lucide:book-heart" title="Our history" url="#FIXME">
           Our story is what made us who we are today. USS Yamato - NCC-71807 - Crew discovered Iconian artifacts but is
           infected by a computer virus that causes antimatter containment loss. The virus causes the ship to explode
           with all hands lost.
         </Feature>
-        <Feature icon="lucide:id-card-lanyard" title="Our team" url='#FIXME'>
+        <Feature icon="lucide:id-card-lanyard" title="Our team" url="#FIXME">
           Meet our team. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns
           throughout. I'm comparing the molecular integrity of that bubble against our phasers.
         </Feature>
-        <Feature icon="lucide:mailbox" title="Reach out" url='#FIXME'>
-          Want to connect? I have reset the sensors to scan for frequencies outside the usual range.
+        <Feature icon="lucide:mailbox" title="Become our partner" url="#FIXME">
+          Drop us a line to talk about partnerships. I have reset the sensors to scan for frequencies outside the usual
+          range.
         </Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-8 md:mb-16">
+    <div class="container">
+      <Heading level="h2" class="mb-8">Trusted by our participants</Heading>
+      <p class="mb-12 italic">But don't take our word for it. See what they have to say.</p>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          testimonials.map((page) => (
+            <div class="testimonial">
+              <p class="mb-3">{page.description}</p>
+              <p class="text-right italic">- {page.title}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="If we include a client resources page, some text about it will go here and then we will link to it."
+    link="#FIXME"
+    linkText="View our resources"
+    icon="book-search"
+  />
+
+  <section class="mb-8 md:mb-16">
+    <div class="container">
+      <Heading level="h2" class="mb-8">Our affiliates</Heading>
+      <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
+        {partners.map((partner) => <FeaturedPartners src={partner.src} alt={partner.alt} url={partner.url} />)}
       </div>
     </div>
   </section>
@@ -154,5 +323,12 @@ import { Icon } from 'astro-icon/components'
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-s);
+  }
+
+  .testimonial {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-large);
+    background-color: var(--background-color);
+    padding: 1rem;
   }
 </style>

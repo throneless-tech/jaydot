@@ -1,0 +1,109 @@
+---
+import { Heading } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+/**
+ * Feature Component
+ *
+ * @description A component that displays a feature with an icon, title, and description
+ */
+interface Props {
+  /**
+   * The logo to display
+   */
+  src?: ImageMetadata
+  /**
+   * The alt text
+   */
+  alt: string
+  /**
+   * The url to link to
+   */
+  url: string
+}
+
+const {src, alt = '', url = '#' }: Props = Astro.props
+---
+
+<div class="feature-container">
+  <a class="feature-link" href={url}></a>
+  <div class="feature flex flex-col gap-2">
+    <Image
+      class="w-100 md:mr-2 md:mb-2"
+      src={src ? src : ''}
+      alt={alt}
+      decoding="async"
+      width={400}
+      height={400}
+      loading="eager"
+    />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../assets/scss/base/breakpoint' as *;
+
+  .feature {
+    position: relative;
+    transform: scale(1);
+    transition: transform 500ms;
+    padding: var(--space-l);
+    inline-size: calc(100% - var(--space-l));
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @include breakpoint(xl) {
+      inline-size: 100%;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+    }
+
+    &::before {
+      z-index: 1;
+      inset: 0;
+      background-color: var(--color-neutral-100);
+    }
+
+    &-container {
+      position: relative;
+    }
+
+    &-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+
+      &:active,
+      &:focus-visible,
+      &:hover {
+        + .feature {
+          transform: scale(1.05);
+          transition: transform 500ms;
+        }
+      }
+    }
+  }
+
+  :global(.feature [data-icon]) {
+    inline-size: 4rem;
+    block-size: auto;
+    color: var(--link-color);
+  }
+
+  :global(.darkmode .feature::before) {
+    box-shadow: 0 0 0 6px var(--color-neutral-900);
+    background-color: var(--color-neutral-900);
+  }
+</style>

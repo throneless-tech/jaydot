@@ -7,11 +7,11 @@ import Footer from '@components/Footer.astro'
 import { ClientRouter } from 'astro:transitions'
 
 const {
-  title = 'Accessible Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = 'Jaydot',
+  description = 'Jaydot is a mission-based social enterprise focused on creating affordable housing solutions for people in the Washington DC area, particularly those who have experienced homelessness.',
   url = Astro.site,
-  image = 'social-preview-image.png',
-  author = 'Incluud',
+  image = 'jaydot-windows.jpg',
+  author = 'Throneless Tech',
 } = Astro.props
 ---
 
@@ -22,7 +22,7 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
 
