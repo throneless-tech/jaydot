@@ -9,7 +9,7 @@ import CallToAction from '@components/CallToAction.astro'
 // Get all portfolio projects
 const projects = await getCollection('projects')
 
-// Define static pages with their descriptions
+// Define approaches with their descriptions
 const approaches = [
   {
     title: 'Build relationships',
@@ -55,8 +55,8 @@ const approaches = [
         <Heading level="h2" class="mb-6">Our history</Heading>
         <div class="mb-10">
           <Image
-            class="float-left w-100 md:mr-6 md:mb-6"
-            src="/help-usa.jpg"
+            class="md:float-left w-100 md:mr-6 mb-6"
+            src="/building-1.jpg"
             alt="FIXME"
             decoding="async"
             width={1000}
@@ -93,6 +93,7 @@ const approaches = [
         </div>
         <Heading level="h2" class="mb-2">Our values</Heading>
         <p class="italic">We strive to embody these six core values in our daily work.</p>
+        <p class="italic text-xs">Photos below with thanks to Gus Powell.</p>
         <div class="space-between mt-12 mb-20 flex flex-col items-center gap-6 md:flex-row">
           <div>
             <Heading level="h3" class="mb-2">Dignity</Heading>
@@ -184,8 +185,8 @@ const approaches = [
         </div>
         <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
           <Image
-            class="w-140"
-            src="/holistic-thinking.jpg"
+            class="w-140 h-100 object-contain"
+            src="/building-2.jpg"
             alt="FIXME"
             decoding="async"
             width={1000}

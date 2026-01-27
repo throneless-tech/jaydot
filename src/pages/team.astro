@@ -1,0 +1,97 @@
+---
+import { Card, Heading, Link, Notification } from 'accessible-astro-components'
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import CallToAction from '@components/CallToAction.astro'
+import { nullable } from 'astro:schema'
+
+// Get all portfolio projects
+// const projects = await getCollection('projects')
+
+// team members with their bios
+const team = [
+  {
+    name: 'Abby McNaughton',
+    pronouns: 'she/her, they/them',
+    title: 'PSH Case Manager',
+    bio: 'Abby has worked in homeless services in Washington, DC since 2022. As a PSH Case Manager, Abby’s favorite part of the work is connecting with and learning from their clients – they find each person endlessly interesting and enjoy helping them bring out their unique strengths. She has a particular passion for harm reduction, street medicine, supporting people living with severe mental illness and dual diagnoses, and reducing client interaction with carceral systems. Abby has been involved in mutual aid efforts, including helping to establish a limited-equity cooperative to provide long-term affordable housing for longtime DC residents. With a BA in Environmental Studies from UNC-Chapel Hill, Abby approaches their work through a lens of social and economic justice, grounded in the belief that housing is a human right.',
+  },
+  {
+    name: 'Chapman Todd',
+    pronouns: 'he/him',
+    title: 'Principal / Director of Special Projects',
+    bio: 'Chapman has 35 years of experience working on homelessness and housing issues in the Washington, DC area. In addition to his work at Jaydot, he contributes to shaping housing policies and initiatives in the District as a Board Member of both The Coalition (formerly CNHED) and The Community Partnership for the Prevention of Homelessness (TCP), and as a Member of the Leadership Council of the DC Reentry Housing Alliance. He is a graduate of Connecticut College and George Washington University Law School.',
+  },
+  {
+    name: 'Jacqueline Vélez Lippman',
+    pronouns: 'she/her',
+    title: 'Project Manager',
+    bio: 'As a Project Manager with Jaydot, Jacqueline manages relationships with development partners, developing collaborative project work plans and ensuring the smooth progression of affordable housing projects in Washington, DC. Her work is driven by her passion for making DC an affordable, accessible place to live, especially for those who are currently unhoused. Known for her teamwork and morale-boosting abilities, Jacqueline is a supportive presence for her colleagues as well, always ready to lend a helping hand. She holds a Bachelor of Arts in Psychology, Philosophy, and Justice & Peace Studies from Georgetown University. Residing in Arlington, VA with her beloved cat, Mochi, Jacqueline enjoys spending her free time in nature, brunching with friends, and spending quality time with her sister. She cherishes trips to the beach, despite the lack of nearby coastlines.',
+  },
+  {
+    name: 'Rosemary Tyrcha',
+    pronouns: 'she/her',
+    title: 'Resident Engagement Services Coordinator',
+    bio: 'Rosemary has been working with systemically disadvantaged students and families in the DC area since she moved to the area for college in 2021. In her role as Resident Engagement Services Coordinator at Jaydot, Rosemary serves as a warm and steady presence for senior residents at The Louise on Western, helping them navigate complex systems with respect and care. Deeply committed to kindness, justice, and connection, she seeks to find points of connection with and inspiration from each person she works with. Rosemary graduated summa cum laude from George Washington University with a BA in Sociology and Law and Society. Outside of her professional life, Rosemary enjoys reading, yoga, time with animals, exploring new restaurants, and traveling. She lives in Northwest DC with her partner and is eagerly planning for the arrival of their future cat.',
+  },
+  {
+    // src: sharlene,
+    name: 'Sharlene Castle, MPA',
+    pronouns: 'she/her',
+    title: 'Director of Operations',
+    bio: "Sharlene has worked on Permanent Supportive Housing in Washington, DC since 2017. In her current role, she ensures the Jaydot team has the resources and support they need to excel in their jobs and advises various stakeholders on the production, lease-up and operation of site-based PSH. Sharlene's early observations of the systemic issues that affect frontline social service workers and their clients drives her commitment to remain connected to on-the-ground realities and foster an environment where everyone she works with feels seen, heard, and valued. She holds a Bachelor’s degree in Women's Studies from San Diego State University, a Master’s in Public Administration from Cornell University and is a Returned Peace Corps Volunteer (China 2014-16). She is also co-chair of The Coalition's (formerly CNHED) Supportive Housing Working Group and the DC Housing Authority Provider’s Group. Outside of work, Sharlene enjoys backpacking, biking around DC, and relaxing at home in Mount Pleasant with her cat. She is passionate about creating a more compassionate society, ending homelessness, and enjoying anything filled with cheese.",
+  },
+]
+---
+
+<DefaultLayout
+  title="Team"
+  description="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices."
+>
+  <PageHeader
+    title="Our Team"
+    subtitle="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears."
+    bgType="gradient"
+  />
+
+  <section class="my-16">
+    <div class="container space-y-12">
+      <div class="grid gap-6 lg:grid-cols-2">
+        {
+          team.map((person) => (
+            <div class="container mb-10 flex flex-col items-center">
+              <Icon aria-hidden="true" name="lucide:circle-user-round" size={80} />
+
+              <div class="mt-6">
+                <p>
+                  <span class="text-2xl font-bold">{person.name}</span> <span class="italic">({person.pronouns})</span>
+                </p>
+                <p>{person.title}</p>
+                <div class="mt-6">{person.bio}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <CallToAction
+      title="Want to join our team?"
+      link="https://jaydot.breezy.hr"
+      linkText="View openings"
+      icon="users"
+    />
+  </section>
+</DefaultLayout>
+
+<style>
+  article {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-large);
+    background-color: var(--background-color);
+    padding: 1rem;
+  }
+</style>

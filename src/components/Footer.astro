@@ -30,16 +30,21 @@ const currentYear = new Date().getFullYear()
           </li>
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About us</Link></li>
-          <li><Link href="/FIXME">Our work</Link></li>
-          <li><Link href="/FIXME">Our team</Link></li>
+          <li><Link href="/work">Our work</Link></li>
+          <li><Link href="/team">Our team</Link></li>
           <li><Link href="/contact">Get in touch</Link></li>
           <!-- <li><Link href="/mdx-page">MDX page</Link></li>
           <li><Link href="/404-page">404 page</Link></li>
           <li><Link href="/sitemap">Sitemap</Link></li> -->
         </ul>
         <div class="lg:my-10">
-          <div>
-            900 Massachusetts Avenue NW, <br />Washington, DC 20001
+          <div class="flex gap-2">
+            <div class="mt-1">
+              <Icon aria-hidden="true" name="lucide:map-pin" size={20} class="shrink-0" />
+            </div>
+            <div>
+              900 Massachusetts Avenue NW, <br />Washington, DC 20001
+            </div>
           </div>
         </div>
       </div>
