@@ -2,6 +2,7 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Heading } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
 ---
 
 <DefaultLayout title="Work">
@@ -10,78 +11,137 @@ import { Heading } from 'accessible-astro-components'
     subtitle="Logic is the beginning of wisdom, not the end. It's not safe out here. It's wondrous, with treasures to satiate desires both subtle and gross; but it's not for the timid. Madness has no purpose."
     bgType="gradient"
   />
-  <section class="narrow container my-16">
-    <div class="space-content">
-      <Heading level="h2">Introduction</Heading>
-      <p>
-        This accessibility statement applies to <strong>[website URL]</strong>. At <strong>[Organization Name]</strong>,
-        we are committed to ensuring digital accessibility for people of all abilities. We believe that everyone should
-        have equal access to information and functionality on the web, regardless of physical or technological
-        limitations. Accessibility is a core value in our commitment to providing an inclusive user experience.
-      </p>
-
-      <Heading level="h2">WCAG compliance</Heading>
-      <p>
-        Our website is designed to conform to the Web Content Accessibility Guidelines (WCAG) 2.2, Level AA. These
-        guidelines explain how to make web content more accessible to people with a wide array of disabilities,
-        including visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
-      </p>
-
-      <Heading level="h2">Current status</Heading>
-      <p>
-        Our website has been internally reviewed for accessibility, and the following accessibility features have been
-        implemented:
-      </p>
-      <ul class="list-inside list-disc">
-        <li>Proper HTML language attributes for screen readers and assistive technologies</li>
-        <li>Keyboard navigability for all interactive elements</li>
-        <li>Sufficient color contrast for text and visual elements</li>
-        <li>Logical focus order for keyboard navigation</li>
-        <li>Proper form error identification and suggestions</li>
-        <li>Skip links to bypass repetitive navigation</li>
-        <li>Responsive design that works across different devices and screen sizes</li>
-        <li>Text alternatives for non-text content</li>
-        <li>ARIA attributes where appropriate to enhance accessibility</li>
-      </ul>
-
-      <Heading level="h2">Areas for improvement</Heading>
-      <p>
-        We recognize that there are areas requiring improvement, such as <strong>[specific features or elements]</strong
-        >, and these have been included in our ongoing enhancement plan.
-      </p>
-
-      <Heading level="h2">Feedback process</Heading>
-      <p>
-        We welcome your feedback on the accessibility of our website. If you encounter any barriers or have suggestions
-        for improvement, please help us by providing the following information:
-      </p>
-      <ul class="list-inside list-disc">
-        <li><strong>URL:</strong> The web address of the content where you experienced the issue</li>
-        <li><strong>Description:</strong> A clear description of the problem</li>
-        <li><strong>Contact details:</strong> Your name and email address (optional)</li>
-      </ul>
-      <p>Please contact us at <strong>[email address]</strong> or <strong>[phone number]</strong>.</p>
-
-      <Heading level="h2">Improvement plan</Heading>
-      <p>
-        We are actively working to improve the accessibility of our website through regular reviews and updates. Planned
-        improvements are focused on <strong>[specific areas]</strong> and are scheduled to be completed by <strong
-          >[specific deadline]</strong
+  <section class="container my-16">
+    <div>
+      <Image
+        class="mb-6 w-100 md:float-left md:mr-6"
+        src="/keys.jpg"
+        alt="FIXME"
+        decoding="async"
+        width={800}
+        height={400}
+        loading="eager"
+      />
+      <Heading level="h2" size="h4">Permanent Supportive Housing (PSH) Case Management</Heading>
+      <p class="my-2">
+        Jaydot is a Permanent Supportive Housing Provider with the DC Department of Human Services. We work with 260+
+        individuals and families in the District to <strong
+          >find and maintain housing, achieve their goals, and improve the overall quality of their lives</strong
         >.
       </p>
-
-      <Heading level="h2">Contact information</Heading>
-      <p>
-        For further questions or comments regarding this accessibility statement or the accessibility of our website,
-        please contact us through our <strong>[contact form/email address]</strong>.
-      </p>
-
-      <Heading level="h2">Publication information</Heading>
-      <p>
-        This accessibility statement was prepared on <strong>[date]</strong> and last updated on <strong>[date]</strong
-        >. The website was last tested on
-        <strong>[latest test date]</strong> against WCAG 2.2 AA guidelines.
+      <p class="mb-2">Some of the PSH case management services Jaydot provides include:</p>
+      <ul class="mb-2 list-inside">
+        <li class="list-disc">Helping participants locate and move into housing of their choosing within DC</li>
+        <li class="list-disc">
+          Assisting participants with securing access to basic needs such as food, transportation, and medical care
+        </li>
+        <li class="list-disc">
+          Coaching participants on strategies to maintain their tenancy and mediating with housing providers as needed
+        </li>
+        <li class="list-disc">
+          Connecting participants with other required services as needed, including mental health services and substance
+          use treatment
+        </li>
+      </ul>
+      <p class="mb-2">
+        In addition to our tenant-based PSH Program, Jaydot is the unit-based PSH Provider for the following buildings:
+        Riggs Crossing Senior Residences, Aspire Apartments, Legacy Temple Courts, The Louise on Western, Barnaby & 7th
+        Apartments, and EucKal.
       </p>
     </div>
+
+    <div class="mt-12">
+      <Image
+        class="mb-6 w-100 md:float-right md:ml-6"
+        src="/building-3.jpg"
+        alt="FIXME"
+        decoding="async"
+        width={800}
+        height={400}
+        loading="eager"
+      />
+      <Heading level="h2" size="h4">PSH and Affordable Housing Development</Heading>
+      <p class="my-2 italic">
+        Jaydot is the lead consultant on the following developments, helping clients navigate District government
+        processes and address the unique needs of residents who have experienced homelessness, from pre-development to
+        lease-up.
+      </p>
+      <Heading level="h3" size="h5">Current Projects</Heading>
+      <p class="my-2">
+        <span class="italic">Lead Project Consultant{' '}</span>for multiple developments totaling over 1,000 units with <span
+          class="font-bold">Housing Up</span
+        >, a DC based non-profit. Projects include pre-development work on four different affordable PSH projects in
+        partnership with several for-profit development companies including Jair Lynch Real Estate Partners, Urban
+        Atlantic, Somerset Development, and the Jonathan Rose Companies.
+      </p>
+      <p class="mb-2">
+        Housing Development Consultant for the The Louise on Western, a new 93-unit senior affordable housing project in
+        Ward 3 that opened in August 2025.
+      </p>
+      <p class="mb-2">
+        Housing Development Consultant for Seabury Resources for Aging, a DC based non-profit, currently working on the
+        operational issues and planned refinancing of two existing affordable housing projects for seniors.
+      </p>
+      <p class="mb-2">
+        Development Consultant for the Community for Creative Non-Violence (CCNV), a DC based non-profit, on the
+        development of a 24 hour shelter and affordable housing development on land owned by CCNV in downtown D.C. The
+        initial stage of the project is supported by a three-year capital funding commitment by the District government,
+        beginning with FY 2025.
+      </p>
+      <p class="mb-2">
+        Project Management Consultant for Recovery Cafe DC, a DC non-profit, which is a partner in the development of a
+        42-unit affordable housing project in Ward 8 which will include commercial space for Recovery Cafe programs,
+        expected to open in 2026.
+      </p>
+      <Image
+        class="mb-6 w-100 md:float-left md:mr-6"
+        src="/help-usa.jpg"
+        alt="FIXME"
+        decoding="async"
+        width={800}
+        height={400}
+        loading="eager"
+      />
+      <Heading level="h3" size="h5">Completed Projects</Heading>
+      <p class="my-2">
+        Diane's House is a 42-unit affordable new construction project with 39 Permanent Supportive Housing units
+        located in Northeast DC that opened in September 2020. Client was Flaherty & Collins, an Indiana based
+        for-profit developer.
+      </p>
+      <p class="mb-2">
+        HELP Walter Reed Veteran Apartments is a 77-unit affordable rehabilitation project with 75 PSH units for
+        Veterans located in Northwest DC that opened in December 2019. Client is HELP USA, a New York City based
+        non-profit.
+      </p>
+      <p class="mb-2">
+        The John and Jill Ker Conway Residence is 124-unit affordable new construction project located in Northeast DC
+        that was completed in December 2016. Seventy-seven units are PSH, 60 of which are for Veterans, and 47 units are
+        for individuals making 60% of the Area Median Income (AMI) or below. Client is Community Solutions, an NYC based
+        non-profit.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <Heading level="h2" size="h4">Other projects</Heading>
+      <p class="my-2">
+        Sometimes a feeling is all we humans have to go on. Genius doesn't work on an assembly line basis. Did Einstein,
+        Kazanga or Sitar of Vulcan produce new and revolutionary theories on a regular schedule? You can't simply say,
+        'Today I will be brilliant.' It's hard to believe that something which is neither seen nor felt can do so much
+        harm. I'm Givin' Her All She's Got, Captain! It’s a — far, far better thing I do than I have ever done before; a
+        far better resting place I go to than I have ever known.” “…Is that a poem?” “…Mmm. Something Spock was trying
+        to tell me — on my birthday.
+      </p>
+      <p class="mb-2">
+        Genius doesn't work on an assembly line basis. Did Einstein, Kazanga or Sitar of Vulcan produce new and
+        revolutionary theories on a regular schedule? You can't simply say, 'Today I will be brilliant.'
+      </p>
+      <p>
+        Compassion: that's the one things no machine ever had. Maybe it's the one thing that keeps men ahead of them. To
+        be human is to be complex. You can't avoid a little ugliness -- from within -- and from without. He tasks me. He
+        tasks me; and I shall have him. I’ll chase him ’round the moons of Nibia and ’round the Antares maelstrom and
+        ’round Perdition’s flames before I give him up. It was the best of times, it was the worst of times.’
+      </p>
+    </div>
+  </div>
   </section>
 </DefaultLayout>
