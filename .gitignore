@@ -3,7 +3,23 @@ dist
 
 # dependencies
 node_modules/
+/.pnp
+.pnp.js
 .snowpack/
+.yarn/install-state.gz
+
+/.idea/*
+!/.idea/runConfigurations
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
 
 # logs
 npm-debug.log*
@@ -13,9 +29,13 @@ yarn-error.log*
 # environment variables
 .env
 .env.production
+.env*.local
 
 # macOS-specific files
 .DS_Store
+
+# misc
+*.pem
 
 # vscode settings and dictionaries
 .vscode
@@ -31,3 +51,14 @@ package-lock.json
 
 # cursor
 .cursor
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

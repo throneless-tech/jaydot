@@ -3,17 +3,20 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@payload-config": [
+        "./src/app/payload.config.ts"
+      ],
       "@components/*": [
-        "src/components/*"
+        "src/app/(frontend)/components/*"
       ],
       "@layouts/*": [
-        "src/layouts/*"
+        "src/app/(frontend)/layouts/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "src/app/(frontend)/assets/*"
       ],
       "@/utils/*": [
-        "src/utils/*"
+        "src/app/(frontend)/utils/*"
       ]
     }
   }
