@@ -1,0 +1,23 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@payload-config": [
+        "backend/payload.config.ts"
+      ],
+      "@components/*": [
+        "frontend/src/components/*"
+      ],
+      "@layouts/*": [
+        "frontend/src/layouts/*"
+      ],
+      "@assets/*": [
+        "frontend/src/assets/*"
+      ],
+      "@/utils/*": [
+        "frontend/src/utils/*"
+      ]
+    }
+  }
+}
