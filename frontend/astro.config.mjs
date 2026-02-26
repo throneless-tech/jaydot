@@ -10,12 +10,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   compressHTML: true,
   site: 'https://jaydot.org',
-  srcDir: './src/',
   integrations: [
     compress(),
     icon({
       include: {
-        iconDir: "./src/assets/icons",
+        iconDir: "./frontend/src/assets/icons",
       },
     }),
     mdx(),
