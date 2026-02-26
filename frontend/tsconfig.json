@@ -4,19 +4,19 @@
     "baseUrl": ".",
     "paths": {
       "@payload-config": [
-        "backend/payload.config.ts"
+        "../backend/payload.config.ts"
       ],
       "@components/*": [
-        "frontend/src/components/*"
+        "src/components/*"
       ],
       "@layouts/*": [
-        "frontend/src/layouts/*"
+        "src/layouts/*"
       ],
       "@assets/*": [
-        "frontend/src/assets/*"
+        "src/assets/*"
       ],
       "@/utils/*": [
-        "frontend/src/utils/*"
+        "src/utils/*"
       ]
     }
   }
