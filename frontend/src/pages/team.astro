@@ -13,7 +13,7 @@ import { nullable } from 'astro:schema'
 
 // team members with their bios
 
-const res = await fetch(`http://localhost:3000/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
+const res = await fetch(`${process.env.PUBLIC_API_URL}/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 const team = await res.json()
 
 ---

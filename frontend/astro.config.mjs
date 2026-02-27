@@ -6,10 +6,13 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
   site: 'https://jaydot.org',
+
   integrations: [
     compress(),
     icon({
@@ -20,6 +23,7 @@ export default defineConfig({
     mdx(),
     sitemap()
   ],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -44,4 +48,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: netlify(),
 })
