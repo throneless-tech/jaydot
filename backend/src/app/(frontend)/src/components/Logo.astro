@@ -1,0 +1,25 @@
+---
+import { Link } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
+import logo from '../assets/img/logo.png'
+
+/**
+ * Logo Component
+ *
+ * @description Logo description
+ */
+interface Props {
+  /**
+   * Whether to load the image eagerly or lazily
+   * @default 'eager'
+   */
+  loading?: 'eager' | 'lazy'
+}
+
+const { loading = 'eager' }: Props = Astro.props
+---
+
+<Link href="/" class="">
+  <Image src={logo} alt="Jaydot Logo" width={logo.width} height={logo.height} loading={loading} />
+  <span class="sr-only">Jaydot</span>
+</Link>

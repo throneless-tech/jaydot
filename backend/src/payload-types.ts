@@ -90,10 +90,12 @@ export interface Config {
   };
   fallbackLocale: null;
   globals: {
+    homepage: Homepage;
     nav: Nav;
     team: Team;
   };
   globalsSelect: {
+    homepage: HomepageSelect<false> | HomepageSelect<true>;
     nav: NavSelect<false> | NavSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
   };
@@ -345,6 +347,23 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homepage".
+ */
+export interface Homepage {
+  id: number;
+  stats?:
+    | {
+        amount: string;
+        text: string;
+        subtext: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "nav".
  */
 export interface Nav {
@@ -380,6 +399,23 @@ export interface Team {
   }[];
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homepage_select".
+ */
+export interface HomepageSelect<T extends boolean = true> {
+  stats?:
+    | T
+    | {
+        amount?: T;
+        text?: T;
+        subtext?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

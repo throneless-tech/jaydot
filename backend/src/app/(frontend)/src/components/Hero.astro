@@ -1,0 +1,76 @@
+---
+import { Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+/**
+ * Hero Component
+ *
+ * @description A component that displays a hero section with a title, description, and image
+ */
+interface Props {
+  /**
+   * The source URL for the image
+   */
+  src?: string
+}
+
+const { src = '/jaydot-windows.jpg' }: Props = Astro.props
+---
+
+<section class="hero my-4 md:mt-12 md:mb-30">
+  <div class="container">
+    <div class="grid grid-cols-1 items-stretch gap-24 md:grid-cols-6">
+      <div class="flex flex-col gap-8 md:col-span-2 md:items-start">
+        <h1 class="text-6xl lg:text-7xl">
+          <slot><span class="text-gradient">Affordable housing</span> solutions for DC</slot>
+        </h1>
+        <div class="flex flex-col gap-6">
+          <Link href="/about" isButton type="primary" animateOnHover animationType="boop">
+            <Icon aria-hidden="true" name="lucide:house-heart" size="1.5rem" />
+            See how we work
+          </Link>
+          <Link href="/contact" isButton type="secondary" animateOnHover animationType="boop">
+            <Icon aria-hidden="true" name="lucide:mail" size="1.5rem" />
+            Reach out now
+          </Link>
+        </div>
+      </div>
+      <div class="md:col-span-4">
+        <Image class="hero-image" src={src} alt="" decoding="async" width={1000} height={400} loading="eager" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  h1 {
+    text-wrap: unset;
+  }
+
+  .hero .button {
+    width: 260px;
+  }
+
+  :global(.button.type-secondary) {
+    border-color: var(--brand-secondary);
+    background-color: var(--color-secondary-100);
+    color: #000;
+  }
+
+  .hero-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      315deg,
+      light-dark(var(--brand-primary), var(--color-secondary-100)) 25%,
+      light-dark(var(--brand-secondary), var(--color-primary-200))
+    );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

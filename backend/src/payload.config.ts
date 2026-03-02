@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 // globals
+import { Homepage } from './globals/Homepage'
 import { Nav } from './globals/Nav'
 import { Team } from './globals/Team'
 
@@ -30,7 +31,7 @@ export default buildConfig({
       collections: ['pages'],
     },
   },
-  globals: [Nav, Team],
+  globals: [Homepage, Nav, Team],
   collections: [Users, Media, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
