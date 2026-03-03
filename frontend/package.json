@@ -27,10 +27,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+    "url": "git+https://github.com/throneless-tech/jaydot.git"
   },
   "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+    "url": "https://github.com/throneless-tech/jaydot/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.3.5",
