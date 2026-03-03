@@ -17,7 +17,7 @@ export default defineConfig({
     compress(),
     icon({
       include: {
-        iconDir: "./frontend/src/assets/icons",
+        iconDir: "./src/assets/icons",
       },
     }),
     mdx(),
