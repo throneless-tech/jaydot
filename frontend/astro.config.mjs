@@ -11,7 +11,6 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   compressHTML: true,
   site: 'https://jaydot.org',
-  srcDir: './frontend/src',
   integrations: [
     compress(),
     icon({

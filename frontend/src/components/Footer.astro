@@ -17,7 +17,7 @@ import CBE from '@assets/partners/CBE.jpg'
 const currentYear = new Date().getFullYear()
 
 // fetch nav links
-const res = await fetch(`http://localhost:3000/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
+const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
 const nav = await res.json()
 ---
 
@@ -28,7 +28,7 @@ const nav = await res.json()
     <div class="relative container flex w-full flex-col justify-between gap-8 overflow-hidden pt-20 md:gap-4 md:pb-10">
       <!-- <Heading level="h3" size="h6">Theme features</Heading> -->
       <ul class="flex flex-wrap items-center gap-8 lg:items-center">
-        {nav["social-media"]["instagram-handle"] && (
+        {nav?.["social-media"]?.["instagram-handle"] && (
           <li class="menu-item type-icon animate-rotate">
             <Link href={`https://www.instagram.com/${nav["social-media"]["instagram-handle"]}/`}>
               <Icon aria-hidden="true" name="lucide:instagram" />
@@ -36,10 +36,10 @@ const nav = await res.json()
             </Link>
           </li>
         )}
-        {nav.items?.map((item: any) => (
+        {nav?.items?.map((item: any) => (
           <li><Link href={item.url}>{item.title}</Link></li>
         ))}
-        {nav["standout-link"] && (
+        {nav?.["standout-link"] && (
           <li><Link href={nav["standout-link"]["standout-link-url"]}>{nav["standout-link"]["standout-link-name"]}</Link></li>
         )}
       

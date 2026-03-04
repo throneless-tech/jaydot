@@ -10,7 +10,7 @@ import { Icon } from 'astro-icon/components'
  */
 
 // fetch nav links
-const res = await fetch(`http://localhost:3000/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
+const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
 const nav = await res.json()
 
 ---
@@ -18,7 +18,7 @@ const nav = await res.json()
 <header>
   <SkipLink />
   <Navigation>
-    {nav.items?.map((item: any) => (
+    {nav?.items?.map((item: any) => (
       <li class="menu-item">
         <Link href={item.url}>{item.title}</Link>
       </li>
@@ -52,14 +52,14 @@ const nav = await res.json()
         </li>
       </ul>
     </li> -->
-    {nav["standout-link"] && (
+    {nav?.["standout-link"] && (
     <li class="menu-item highlight">
       <Link href={nav["standout-link"]["standout-link-url"]}>{nav["standout-link"]["standout-link-name"]}</Link>
     </li>
     )}
-    {nav["social-media"]["instagram-handle"] && (
+    {nav?.["social-media"]?.["instagram-handle"] && (
       <li class="menu-item type-icon animate-rotate">
-        <Link href={`https://www.instagram.com/${nav["social-media"]["instagram-handle"]}/`}>
+        <Link href={`https://www.instagram.com/${nav?.["social-media"]["instagram-handle"]}/`}>
           <Icon aria-hidden="true" name="lucide:instagram" />
           <span class="sr-only">Follow us on Instagram</span>
         </Link>
