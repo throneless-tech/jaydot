@@ -359,6 +359,36 @@ export interface Homepage {
         id?: string | null;
       }[]
     | null;
+  whatWeDoCard?:
+    | {
+        title: string;
+        summary: string;
+        url: string;
+        icon: string;
+        id?: string | null;
+      }[]
+    | null;
+  testimonials?:
+    | {
+        quote: string;
+        attribution: string;
+        id?: string | null;
+      }[]
+    | null;
+  cta?: {
+    title?: string | null;
+    linkName?: string | null;
+    linkUrl?: string | null;
+    icon?: string | null;
+  };
+  partners?:
+    | {
+        name: string;
+        logo: number | Media;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -379,6 +409,10 @@ export interface Nav {
   };
   'social-media'?: {
     'instagram-handle'?: string | null;
+  };
+  address?: {
+    line1?: string | null;
+    line2?: string | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -413,6 +447,38 @@ export interface HomepageSelect<T extends boolean = true> {
         subtext?: T;
         id?: T;
       };
+  whatWeDoCard?:
+    | T
+    | {
+        title?: T;
+        summary?: T;
+        url?: T;
+        icon?: T;
+        id?: T;
+      };
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        attribution?: T;
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        linkName?: T;
+        linkUrl?: T;
+        icon?: T;
+      };
+  partners?:
+    | T
+    | {
+        name?: T;
+        logo?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -439,6 +505,12 @@ export interface NavSelect<T extends boolean = true> {
     | T
     | {
         'instagram-handle'?: T;
+      };
+  address?:
+    | T
+    | {
+        line1?: T;
+        line2?: T;
       };
   updatedAt?: T;
   createdAt?: T;

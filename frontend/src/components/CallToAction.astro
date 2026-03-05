@@ -35,7 +35,7 @@ const {
   title = 'Potential partners and current participants: reach out now.',
   link = '/FIXME',
   linkText = 'Send us a message',
-  icon = 'mailbox',
+  icon = undefined,
 } = Astro.props
 ---
 
@@ -44,7 +44,9 @@ const {
     <Heading level="h2" class="text-center text-3xl md:text-6xl">{title}</Heading>
     <Link href={link} isButton size="lg" animateOnHover animationType="nudge">
       {linkText}
-      <Icon aria-hidden="true" name=`lucide:${icon}` size="1.5rem" />
+      {icon && (
+        <Icon aria-hidden="true" name={`lucide:${icon}`} size="1.5rem" />
+      )}
     </Link>
   </div>
 </div>

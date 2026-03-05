@@ -2,6 +2,7 @@ import { GlobalConfig } from 'payload'
 
 export const Nav: GlobalConfig = {
   slug: 'nav',
+  label: 'Navigation and global data',
   access: {
     read: () => true,
     update: ({ req: { user }, data }) => {
@@ -51,6 +52,22 @@ export const Nav: GlobalConfig = {
           name: 'instagram-handle',
           type: 'text'
         }
+      ]
+    },
+    {
+      name: 'address',
+      type: 'group',
+      fields: [
+        {
+          name: 'line1',
+          label: 'Line 1',
+          type: 'text',
+        },
+        {
+          name: 'line2',
+          label: 'Line 2',
+          type: 'text',
+        },
       ]
     }
   ],
