@@ -1,6 +1,4 @@
 ---
-import { Heading } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 /**
  * Feature Component
@@ -11,7 +9,7 @@ interface Props {
   /**
    * The logo to display
    */
-  src: ImageMetadata
+  src: string
   /**
    * The alt text
    */
@@ -23,6 +21,7 @@ interface Props {
 }
 
 const {src, alt = '', url = '#' }: Props = Astro.props
+
 ---
 
 <div class="feature-container">

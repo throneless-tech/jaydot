@@ -6,6 +6,9 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import netlify from '@astrojs/netlify';
+import { loadEnv } from "vite";
+
+const { PUBLIC_SERVER_URL } = loadEnv(process.env.PUBLIC_SERVER_URL, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -47,5 +50,10 @@ export default defineConfig({
     },
   },
   output: 'server',
-  adapter: netlify(),
+  adapter: netlify({
+    // imageCDN: false,
+  }),
+  image: {
+    domains: [PUBLIC_SERVER_URL]
+  }
 })

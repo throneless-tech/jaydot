@@ -26,10 +26,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    livePreview: {
-      url: 'http://localhost:4321',
-      collections: ['pages'],
-    },
+    // livePreview: {
+    //   url: 'http://localhost:4321',
+    //   collections: ['pages'],
+    // },
   },
   globals: [Homepage, Nav, Team],
   collections: [Users, Media, Pages],
