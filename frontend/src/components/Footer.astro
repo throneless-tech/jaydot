@@ -18,7 +18,7 @@ const currentYear = new Date().getFullYear()
 
 // fetch nav links
 const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
-const nav = await res.json()
+const nav = await res?.json()
 ---
 
 <footer>
