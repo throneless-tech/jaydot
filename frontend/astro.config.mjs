@@ -51,7 +51,7 @@ export default defineConfig({
   },
   output: 'server',
   adapter: netlify({
-    // imageCDN: false,
+    imageCDN: false,
   }),
   image: {
     domains: [PUBLIC_SERVER_URL]
