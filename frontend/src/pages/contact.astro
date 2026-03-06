@@ -14,13 +14,55 @@ import { Icon } from 'astro-icon/components'
   <section class="container mb-20">
     <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
       <div class="space-content">
-        <!-- <Heading level="h3">Contact us</Heading> -->
-        <p class="text-2xl">Email to learn more about partnering with us.</p>
+        <Heading level="h2" size="h4">Send us a message</Heading>
+        <Form name="contact" action="/thank-you" method="post">
+          <!-- Input field with custom validation message -->
+          <Input
+            name="name"
+            label="Name"
+            required
+            data-validation="We need your name to address you correctly"
+            autocomplete="given-name"
+          />
+
+          <Input name="email" label="Email address (optional)" type="email" autocomplete="email" />
+
+          <!-- Custom validation with pattern -->
+          <Input name="phone" label="Phone number (optional)" type="tel" data-validation-pattern="^[0-9]{10}$" />
+
+          <Textarea name="message" label="Message" required />
+
+          <!-- Checkbox group with validation -->
+          <!-- <Fieldset
+            name="interests"
+            legend="What are you interested in?"
+            required
+            data-validation="Please select at least one area of interest"
+          >
+            <Checkbox name="accessibility" value="a11y" label="Accessibility and inclusive design" />
+            <Checkbox name="wcag-compliance" value="wcag" label="WCAG compliance and testing" />
+            <Checkbox name="screen-reader" value="sr" label="Screen reader optimization" />
+            <Checkbox name="keyboard-nav" value="keyboard" label="Keyboard navigation" />
+          </Fieldset> -->
+
+          <!-- Radio group (shared names) -->
+          <!-- <Fieldset name="experience" legend="Your experience level" required>
+            <Radio name="experience" value="beginner" label="Beginner" />
+            <Radio name="experience" value="intermediate" label="Intermediate" />
+            <Radio name="experience" value="advanced" label="Advanced" />
+          </Fieldset> -->
+
+          <div class="italic">Please leave an email or phone number if you'd like us to reply to your message.</div>
+
+          <Button htmlType="submit" type="primary">Send Message</Button>
+        </Form>
+      </div>
+      <div class="space-content">
+        <Heading level="h2" size="h4">Email us</Heading>
 
         <div class="gap-2xs flex items-center">
           <Icon aria-hidden="true" name="lucide:mail" size={20} class="shrink-0" />
           <p class="text-2xl">
-            <span class="font-bold">Email:</span>
             <Link href="mailto:info@jaydot.org">info@jaydot.org</Link>
           </p>
         </div>
@@ -33,13 +75,13 @@ import { Icon } from 'astro-icon/components'
           </p>
         </div> -->
 
-        <div class="gap-2xs flex items-center">
+        <!-- <div class="gap-2xs flex items-center">
           <Icon aria-hidden="true" name="lucide:map-pin" size={20} class="shrink-0" />
           <p class="text-2xl">
             <span class="font-bold">Address:</span>
             900 Massachusetts Avenue NW, Washington, DC 20001
           </p>
-        </div>
+        </div> -->
 
         <div class="gap-2xs flex items-center">
           <Icon aria-hidden="true" name="lucide:clock" size={20} class="shrink-0" />
@@ -90,48 +132,6 @@ import { Icon } from 'astro-icon/components'
             </Link>
           </li>
         </ul>
-      </div>
-      <div class="space-content">
-        <p class="text-2xl">Interested in how we can help with housing? Send us a message here. We may call you or email you to reply.</p>
-        <Form name="contact" action="/thank-you" method="post">
-          <!-- Input field with custom validation message -->
-          <Input
-            name="name"
-            label="Name"
-            required
-            data-validation="We need your name to address you correctly"
-            autocomplete="given-name"
-          />
-
-          <Input name="email" label="Email address" type="email" autocomplete="email" />
-
-          <!-- Custom validation with pattern -->
-          <Input name="phone" label="Phone number" type="tel" required data-validation-pattern="^[0-9]{10}$" />
-
-          <Textarea name="message" label="Message" required />
-
-          <!-- Checkbox group with validation -->
-          <!-- <Fieldset
-            name="interests"
-            legend="What are you interested in?"
-            required
-            data-validation="Please select at least one area of interest"
-          >
-            <Checkbox name="accessibility" value="a11y" label="Accessibility and inclusive design" />
-            <Checkbox name="wcag-compliance" value="wcag" label="WCAG compliance and testing" />
-            <Checkbox name="screen-reader" value="sr" label="Screen reader optimization" />
-            <Checkbox name="keyboard-nav" value="keyboard" label="Keyboard navigation" />
-          </Fieldset> -->
-
-          <!-- Radio group (shared names) -->
-          <!-- <Fieldset name="experience" legend="Your experience level" required>
-            <Radio name="experience" value="beginner" label="Beginner" />
-            <Radio name="experience" value="intermediate" label="Intermediate" />
-            <Radio name="experience" value="advanced" label="Advanced" />
-          </Fieldset> -->
-
-          <Button htmlType="submit" type="primary">Send Message</Button>
-        </Form>
       </div>
     </div>
   </section>

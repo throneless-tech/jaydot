@@ -21,12 +21,12 @@ const approaches = [
   {
     title: 'Build relationships',
     description:
-      'Relationships are the cornerstone of our work (and lives), and we value them above all else. We build trust and authentic connections with people at every level of our work, especially across lines of power and difference. ',
+      'Relationships are the cornerstone of our work (and lives), and we value them above all else. We build trust and authentic connections with people at every level of our work, especially across lines of power and difference.',
   },
   {
     title: 'Collaborate',
     description:
-      'We relish opportunities to collaborate with and learn from one another--both our team and those with whom we work. We aim to keep everyone in the loop and reach out when we’re not sure about something, knowing that in doing so we are building our collective knowledge and impact.',
+      'We relish opportunities to collaborate with and learn from one another—both our team and those with whom we work. We aim to keep everyone in the loop and reach out when we’re not sure about something, knowing that in doing so we are building our collective knowledge and impact.',
   },
   {
     title: 'Be accountable',
@@ -41,24 +41,24 @@ const approaches = [
   {
     title: 'Engage in direct service',
     description:
-      'Every Jaydot team member spends valuable time on the ground. We work hard to witness and understand the realities that our clients—and staff—face every day so we can most effectively address them. ',
+      'Every Jaydot team member spends valuable time on the ground. We work hard to witness and understand the realities that our clients—and staff—face every day so we can most effectively address them.',
   },
 ]
 ---
 
 <DefaultLayout
   title="About"
-  description="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices."
+  description="Jaydot is a mission-based organization dedicated to ending homelessness in DC by helping people find housing that feels like home."
 >
   <PageHeader
     title="About Us"
-    subtitle="I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears."
+    subtitle="Jaydot is a mission-based organization dedicated to ending homelessness in DC by helping people find housing that feels like home."
     bgType="gradient"
   />
 
   <section class="my-16">
     <div class="container space-y-12">
-      <div>
+      <div id="history">
         <Heading level="h2" class="mb-6">Our history</Heading>
         <div class="mb-20">
           <Image
@@ -70,34 +70,29 @@ const approaches = [
           />
           <div>
             <p class="mb-4">
-              With the first link, the chain is forged. The first speech censored, the first thought forbidden, the
-              first freedom denied, chains us all irrevocably. Your will to survive, your love of life, your passion to
-              know ... Everything that is truest and best in all species of beings has been revealed to you.
+              Jaydot was founded in 2010 to fill a gap in housing solutions for people exiting homelessness in DC. Our work is based on the fundamental but radical idea that the solution to homelessness is housing. Although Jaydot has grown in size and scope, we maintain our human-centered approach. Our focus remains on the intersection of affordable housing, supportive services, and integrated community.
             </p>
             <p class="mb-4">
-              Those are the qualities that make a civilization worthy to survive. Look at these three words written
-              larger than all the rest, and with special pride never written before or since -- tall words, proudly
-              saying "We the people" ... these words and the words that follow ... must apply to everyone or they mean
-              nothing. I object to intellect without discipline; I object to power without constructive purpose. Make It
-              So!
+              In both our Permanent Supportive Housing (PSH) and resident services programs, we focus on providing voluntary, wraparound onsite services at residences. Our founder, Chapman Todd, was inspired to focus on this model based on his 20 years of work in homeless services in DC. During that time, Chapman co-founded DC Central Kitchen and managed the city’s shelters with Catholic Charities.
             </p>
             <p class="mb-4">
-              When dreams become more important than reality, you give up travel, building, creating; you even forget
-              how to repair the machines left behind by your ancestors. You just sit living and reliving other lives
-              left behind in the thought records. Leave bigotry in your quarters; there's no room for it on the bridge.
-              You know the greatest danger facing us is ourselves, and irrational fear of the unknown. There is no such
-              thing as the unknown. Only things temporarily hidden, temporarily not understood.
+              We are often asked why Jaydot is an LLC rather than a nonprofit. Because of structural and legal differences, being an LLC allows us to work with greater allegiance to our mission. We can be nimble and responsive in a way that is difficult within more rigid governance structures that apply to nonprofits. And, we can prioritize service integrity over obligations to funders, which is a common bind for nonprofits. Our structure lets us focus on the heart of our work: ensuring that housing solutions are adapted to fit the needs of those we serve. 
             </p>
             <p>
-              Now, I don't pretend to tell you how to find happiness and love, when every day is a struggle to survive.
-              But I do insist that you do survive, because the days and the years ahead are worth living for! For
-              everything, there is a first time. Do you know the old Klingon proverb that revenge is a dish best served
-              cold? It is very cold — in space.
+              The name "Jaydot" was suggested to Chapman by his then 9-year-old child, who he asked for ideas. Chapman thought the name hit the mark – confident, concise, and a little playful. As in so much of our work, the real meaning is in the relationship.
             </p>
           </div>
         </div>
-        <Heading level="h2" class="mb-2">Our values</Heading>
-        <p class="italic">We strive to embody these six core values in our daily work.</p>
+        <div id="mission">
+          <Heading level="h2" class="mb-2">Our mission</Heading>
+        </div>
+        <p>
+          Our mission is to create innovative, quality housing solutions that address the needs of those impacted by social inequity. We believe that housing is a human right, homelessness is a solvable problem, and we can create an equitable, human-centered system where housing solutions are readily adapted to fit the needs of those we serve. 
+        </p>
+        <div id="values" class="mt-20">
+          <Heading level="h2" class="mb-2">Our values</Heading>
+        </div>
+        <p class="italic">We strive to embody these core values in our daily work:</p>
         <div class="masonry sm:masonry-sm md:masonry-md gap-8 mt-10">
           <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
             <Image
@@ -197,10 +192,10 @@ const approaches = [
           </div>
         </div>
 
-      <div class="mt-20">
+      <div id="approach" class="mt-20">
         <Heading level="h2" class="mb-2">Our approach</Heading>
         <p class="mb-12 italic">
-          Just as important as what we do is how we do it. Here's our approach to achieving our mission.
+          We approach our mission through these practices:
         </p>
         <div class="">
           {

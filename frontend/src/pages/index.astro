@@ -158,7 +158,7 @@ const testimonials = [
 <DefaultLayout title="Home">
   <Hero />
   {data?.stats?.length && (
-    <section class="mt-12 mb-18 md:mt-30 md:mb-32">
+    <section class="bg-(--brand-primary) text-(--brand-light-olive) mt-12 py-12 mb-18 md:mt-30 md:mb-32">
         <div class="container">
           <Heading level="h2" class="md:mb-16">Our impact so far:</Heading>
           <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
@@ -173,7 +173,7 @@ const testimonials = [
   {data?.whatWeDoCard?.length && (
     <section class="mb-8 md:mb-20">
       <div class="container">
-        <Heading level="h2" class="mb-8">What we do</Heading>
+        <Heading level="h2" class="mb-8">Who we are</Heading>
         <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
           {data.whatWeDoCard.map((card: any) => (
             <Feature icon={`lucide:${card.icon}`} title={card.title} url={card.url}>
