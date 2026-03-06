@@ -5,6 +5,13 @@ import { Heading, Notification } from 'accessible-astro-components'
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
 import CallToAction from '@components/CallToAction.astro'
+import building1 from '@assets/images/about/building-1.jpg'
+import building2 from '@assets/images/about/building-2.jpg'
+import dignity from '@assets/images/about/dignity.jpg'
+import humility from '@assets/images/about/humility-2.jpg'
+import innovation from '@assets/images/about/innovation.jpg'
+import justice from '@assets/images/about/justice.jpg'
+import powerSharing from '@assets/images/about/power-sharing.jpg'
 
 // Get all portfolio projects
 const projects = await getCollection('projects')
@@ -53,15 +60,13 @@ const approaches = [
     <div class="container space-y-12">
       <div>
         <Heading level="h2" class="mb-6">Our history</Heading>
-        <div class="mb-10">
+        <div class="mb-20">
           <Image
             class="md:float-left w-100 md:mr-6 mb-6"
-            src="/building-1.jpg"
+            src={building1}
             alt="FIXME"
             decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
+            loading="lazy"
           />
           <div>
             <p class="mb-4">
@@ -93,123 +98,111 @@ const approaches = [
         </div>
         <Heading level="h2" class="mb-2">Our values</Heading>
         <p class="italic">We strive to embody these six core values in our daily work.</p>
-        <p class="italic text-xs">Photos below with thanks to Gus Powell.</p>
-        <div class="space-between mt-12 mb-20 flex flex-col items-center gap-6 md:flex-row">
-          <div>
-            <Heading level="h3" class="mb-2">Dignity</Heading>
-            <p>We value the inherent dignity, humanity, self-determination, and worth of all people.</p>
+        <div class="masonry sm:masonry-sm md:masonry-md gap-8 mt-10">
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-300 cover rounded-t-lg relative"
+              src={dignity}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bg-(--brand-primary) p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Dignity</Heading>
+              <p>We value the inherent dignity, humanity, self-determination, and worth of all people.</p>
+            </div>
           </div>
-          <Image
-            class="w-100"
-            src="/dignity.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-        </div>
-        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
-          <Image
-            class="w-100"
-            src="/justice.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-          <div>
-            <Heading level="h3" class="mb-2">Justice</Heading>
-            <p>
-              Many of the challenges we seek to address are a direct result of intersecting systems of oppression, in
-              particular anti-Black racism. We are committed to honoring people’s unique histories, perspectives, and
-              ways of being, and working towards a system in which all people are free.
-            </p>
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-full cover rounded-t-lg relative"
+              src={justice}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Justice</Heading>
+              <p>
+                Many of the challenges we seek to address are a direct result of intersecting systems of oppression, in
+                particular anti-Black racism. We are committed to honoring people’s unique histories, perspectives, and
+                ways of being, and working towards a system in which all people are free.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="space-between mb-20 flex flex-col items-center gap-6 md:flex-row">
-          <div>
-            <Heading level="h3" class="mb-2">Innovation</Heading>
-            <p>
-              We work to identify the gaps and possibilities in the systems within which we operate and work with our
-              partners to craft innovative solutions. We are not bound by what is—we adapt to changing circumstances and
-              focus on what can be.
-            </p>
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-full cover rounded-t-lg relative"
+              src={innovation}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Innovation</Heading>
+              <p>
+                We work to identify the gaps and possibilities in the systems within which we operate and work with our
+                partners to craft innovative solutions. We are not bound by what is—we adapt to changing circumstances and
+                focus on what can be.
+              </p>
+            </div>
           </div>
-          <Image
-            class="w-100"
-            src="/innovation.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-        </div>
-        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
-          <Image
-            class="w-140"
-            src="/humility-2.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-          <div>
-            <Heading level="h3" class="mb-2">Humility</Heading>
-            <p>
-              We are always learning and thus making mistakes. We are committed to reflecting on, owning, and learning
-              from our collective experiences.
-            </p>
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-full cover rounded-t-lg relative"
+              src={humility}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Humility</Heading>
+              <p>
+                We are always learning and thus making mistakes. We are committed to reflecting on, owning, and learning
+                from our collective experiences.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="space-between mb-20 flex flex-col items-center gap-6 md:flex-row">
-          <div>
-            <Heading level="h3" class="mb-2">Power sharing</Heading>
-            <p>
-              We strive to build the capacity of our team and the communities we work with by transferring our
-              collective knowledge, credibility, and power.
-            </p>
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-full cover rounded-t-lg relative"
+              src={powerSharing}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Power sharing</Heading>
+              <p>
+                We strive to build the capacity of our team and the communities we work with by transferring our
+                collective knowledge, credibility, and power.
+              </p>
+            </div>
           </div>
-          <Image
-            class="w-140"
-            src="/power-sharing.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-        </div>
-        <div class="space-between mb-20 flex flex-col-reverse items-center gap-6 md:flex-row">
-          <Image
-            class="w-140 h-100 object-contain"
-            src="/building-2.jpg"
-            alt="FIXME"
-            decoding="async"
-            width={1000}
-            height={400}
-            loading="eager"
-          />
-          <div>
-            <Heading level="h3" class="mb-2">Holistic thinking</Heading>
-            <p>
-              We are involved in all aspects of our field, from macro policy to the ground level, and believe that they
-              are deeply connected. We are dedicated to establishing connections to ensure that systems are responsive
-              to the needs of the communities with which we work.
-            </p>
+          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+            <Image
+              class="w-full cover rounded-t-lg relative"
+              src={building2}
+              alt="FIXME"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
+              <Heading level="h3" class="mb-2">Holistic thinking</Heading>
+              <p>
+                We are involved in all aspects of our field, from macro policy to the ground level, and believe that they
+                are deeply connected. We are dedicated to establishing connections to ensure that systems are responsive
+                to the needs of the communities with which we work.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div>
+      <div class="mt-20">
         <Heading level="h2" class="mb-2">Our approach</Heading>
         <p class="mb-12 italic">
           Just as important as what we do is how we do it. Here's our approach to achieving our mission.
         </p>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="">
           {
             approaches.map((page) => (
               <article>
@@ -225,6 +218,9 @@ const approaches = [
     </div>
 
     <CallToAction />
+
+    <div class="mt-20 italic text-sm">Thanks to Robert Benson and Gus Powell for photos on this page.</div>
+
   </section>
 </DefaultLayout>
 
@@ -233,6 +229,7 @@ const approaches = [
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-large);
     background-color: var(--background-color);
+    margin-bottom: 1rem;
     padding: 1rem;
   }
 </style>

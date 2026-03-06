@@ -1,5 +1,16 @@
 @use 'breakpoint' as *;
 
+.masonry {
+  column-gap: 1.5em;
+  column-count: 1;
+  row-gap: 1.5em;
+
+  @include breakpoint(m) {
+    column-gap: 1.5em;
+    column-count: 2;
+  }
+}
+
 .container {
   margin-inline: auto;
   padding-inline: var(--grid-gutter);

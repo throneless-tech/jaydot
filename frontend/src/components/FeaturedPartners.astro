@@ -9,7 +9,7 @@ interface Props {
   /**
    * The logo to display
    */
-  src: string
+  src: ImageMetadata
   /**
    * The alt text
    */
@@ -31,9 +31,8 @@ const {src, alt = '', url = '#' }: Props = Astro.props
       src={src}
       alt={alt}
       decoding="async"
-      width={400}
-      height={400}
       loading="eager"
+      class="object-contain"
     />
   </div>
 </div>

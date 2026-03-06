@@ -2,33 +2,33 @@
 import { Link } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-
+import src from '@assets/images/jaydot-windows.jpg'
 /**
  * Hero Component
  *
  * @description A component that displays a hero section with a title, description, and image
  */
-interface Props {
-  /**
-   * The source URL for the image
-   */
-  src?: string
-}
+// interface Props {
+//   /**
+//    * The source URL for the image
+//    */
+//   src?: string
+// }
 
-const { src = '/jaydot-windows.jpg' }: Props = Astro.props
+// const { src = '/jaydot-windows.jpg' }: Props = Astro.props
 ---
 
 <section class="hero my-4 md:mt-12 md:mb-30">
   <div class="container">
-    <div class="grid grid-cols-1 items-stretch gap-24 md:grid-cols-6">
-      <div class="flex flex-col gap-8 md:col-span-2 md:items-start">
-        <h1 class="text-6xl lg:text-7xl">
+    <div class="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2">
+      <div class="flex flex-col gap-8 md:items-start">
+        <h1 class="text-6xl lg:text-8xl">
           <slot><span class="text-gradient">Affordable housing</span> solutions for DC</slot>
         </h1>
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-3 min-[500px]:flex-row">
           <Link href="/about" isButton type="primary" animateOnHover animationType="boop">
             <Icon aria-hidden="true" name="lucide:house-heart" size="1.5rem" />
-            See how we work
+            Learn how we work
           </Link>
           <Link href="/contact" isButton type="secondary" animateOnHover animationType="boop">
             <Icon aria-hidden="true" name="lucide:mail" size="1.5rem" />
@@ -36,9 +36,7 @@ const { src = '/jaydot-windows.jpg' }: Props = Astro.props
           </Link>
         </div>
       </div>
-      <div class="md:col-span-4">
-        <Image class="hero-image" src={src} alt="" decoding="async" width={1000} height={400} loading="eager" />
-      </div>
+      <Image class="hero-image" src={src} alt="" decoding="async" loading="eager" />
     </div>
   </div>
 </section>
