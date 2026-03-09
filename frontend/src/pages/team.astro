@@ -221,27 +221,29 @@ const team = [
           team.map((person: any) => (
             <div class="container mb-20 flex flex-col items-start justify-start">
               {/* <Icon aria-hidden="true" name="lucide:circle-user-round" size={80} /> */}
-              {person.image ? (
-                <Image
-                  class='user-circle'
-                  src={person.image}
-                  alt={person.image?.alt || "Placeholder user image."}
-                  decoding="async"
-                  width={160}
-                  height={160}
-                  loading="lazy"
-                />
-              ) : (
-                <Image
-                  class='user-circle'
-                  src={user}
-                  alt="Placeholder user image."
-                  decoding="async"
-                  width={160}
-                  height={160}
-                  loading="lazy"
-                />
-              )}
+              <div class="h-[160px] w-[160px]">
+                {person.image ? (
+                  <Image
+                    class='user-circle'
+                    src={person.image}
+                    alt={person.image?.alt || "Placeholder user image."}
+                    decoding="async"
+                    width={160}
+                    height={160}
+                    loading="lazy"
+                  />
+                ) : (
+                  <Image
+                    class='user-circle'
+                    src={user}
+                    alt="Placeholder user image."
+                    decoding="async"
+                    width={160}
+                    height={160}
+                    loading="lazy"
+                  />
+                )}
+              </div>
               <div class="mt-6">
                 <div>
                   <span class="text-2xl font-bold">{person.name}</span>{' '}
@@ -268,17 +270,29 @@ const team = [
           consultants.map((person: any) => (
             <div class="container mb-20 flex flex-col items-start justify-start">
               {/* <Icon aria-hidden="true" name="lucide:circle-user-round" size={80} /> */}
-              {person.image ? (
-                <Image
-                  class='user-circle'
-                  src={person.image}
-                  alt={person.image?.alt || "Placeholder user image."}
-                  decoding="async"
-                  width={160}
-                  height={160}
-                  loading="eager"
-                />
-              ) : null}
+              <div class="h-[160px] w-[160px]">
+                {person.image ? (
+                    <Image
+                      class='user-circle'
+                      src={person.image}
+                      alt={person.image?.alt || "Placeholder user image."}
+                      decoding="async"
+                      width={160}
+                      height={160}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Image
+                      class='user-circle'
+                      src={user}
+                      alt="Placeholder user image."
+                      decoding="async"
+                      width={160}
+                      height={160}
+                      loading="lazy"
+                    />
+                  )}
+              </div>
               <div class="mt-6">
                 <div>
                   <span class="text-2xl font-bold">{person.name}</span>{' '}
