@@ -26,26 +26,32 @@ const {src, alt = '', url = '#' }: Props = Astro.props
 
 <div class="feature-container">
   <a class="feature-link" href={url}></a>
-  <div class="feature flex flex-col gap-2">
+  <div class="feature">
     <Image
       src={src}
       alt={alt}
       decoding="async"
       loading="eager"
-      class="object-contain"
+      class="object-contain center"
     />
   </div>
 </div>
 
 <style lang="scss">
   @use '../assets/scss/base/breakpoint' as *;
+  
+  .center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   .feature {
-    position: relative;
+    position: absolute;
     transform: scale(1);
     transition: transform 500ms;
     padding: var(--space-l);
-    inline-size: calc(100% - var(--space-l));
+    inline-size: calc(110% - var(--space-l));
+
 
     > * {
       position: relative;
@@ -69,7 +75,9 @@ const {src, alt = '', url = '#' }: Props = Astro.props
     }
 
     &-container {
+      height: 300px;
       position: relative;
+      width: 300px;
     }
 
     &-link {

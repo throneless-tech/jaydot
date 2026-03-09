@@ -3,7 +3,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Heading } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
-import help from '@assets/images/help-usa.jpg'
+import building from '@assets/images/building-3.jpg'
 import keys from '@assets/images/keys-2.jpeg'
 import services from '@assets/images/resident-services.jpg'
 ---
@@ -11,61 +11,53 @@ import services from '@assets/images/resident-services.jpg'
 <DefaultLayout title="Work">
   <PageHeader
     title="Our work"
-    subtitle="Jaydot works with over 900 DC residents as a Permanent Supportive Housing (PSH) provider and as a resident services provider. By combining the “housing first” model with supportive services, we encompass residents’ basic needs and create the conditions in which they can thrive. 
-"
+    subtitle="Jaydot works with over 900 DC residents as a Permanent Supportive Housing (PSH) provider and as a resident services provider. By combining the “housing first” model with supportive services, we encompass residents’ basic needs and create the conditions in which they can thrive."
     bgType="gradient"
   />
   <section class="container my-16">
     <div>
+      <div>
       <Image
-        class="mb-6 w-100 md:float-left md:mr-6"
+        class="mb-4 w-100 md:float-left md:mr-6"
         src={keys}
         alt="FIXME"
         decoding="async"
         loading="eager"
       />
+      </div>
+      <div>
       <Heading level="h2" size="h4">Case management for PSH</Heading>
       <p class="my-2">
         We provide case management that helps people find and maintain their housing and meet other needs. Through a contract with the DC Department of Human Services, Jaydot provides both tenant-based and unit-based PSH case management. With this support, participants experience greater stability and an improved quality of life that allows them to achieve their goals.
       </p>
       <p class="mb-2">We help people:</p>
-      <ul class="mb-2 list-inside">
-        <li class="list-disc">Find and move into housing within DC</li>
-        <li class="list-disc">
-          Meet basic needs like food, transportation, and medical care
-        </li>
-        <li class="list-disc">
-          Build strategies to maintain their housing
-        </li>
-        <li class="list-disc">
-          Liaise, coordinate, and mediate with housing providers
-        </li>
-        <li class="list-disc">
-          Access other services, including mental health and substance use treatment
-        </li>
+      <ul class="mb-2 table">
+        <li class="list-disc ml-4 -text-indent-4">Find and move into housing within DC</li>
+        <li class="list-disc ml-4 -text-indent-4">Meet basic needs like food, transportation, and medical care</li>
+        <li class="list-disc ml-4 -text-indent-4">Build strategies to maintain their housing</li>
+        <li class="list-disc ml-4 -text-indent-4">Liaise, coordinate, and mediate with housing providers</li>
+        <li class="list-disc ml-4 -text-indent-4">Access other services, including mental health and substance use treatment</li>
       </ul>
       <p class="mb-2">
         Among PSH providers in DC, Jaydot is unique in the scope and depth of our collaboration with developers. We focus on working with developers from project inception through occupancy, making sure we’re fostering the conditions and community in which residents can thrive. 
       </p>
       <p class="mb-2">
-        We know that relationships are at the heart of effective work and our standard practices reflect that priority. We gain familiarity and build trust with residents by being physically present and available at our sites. This foundation of familiarity makes us responsive to emerging needs and effective in our onsite case management. We also have deeply invested in relationships with developers, property managers, and DC agencies. These longstanding relationships allow us to efficiently navigate bureaucracies and competing interests. 
-      </p>
-      <p class="mb-2">
-        Jaydot helps create a trustworthy network of support and accountability. Our effectiveness is visible in our work record: we work in more unit-based PSH buildings than any other provider.
+        We know that relationships are at the heart of effective work and our standard practices reflect that priority. We gain familiarity and build trust with residents by being physically present and available at our sites. This foundation of familiarity makes us responsive to emerging needs and effective in our onsite case management. We also have deeply invested in relationships with developers, property managers, and DC agencies. These longstanding relationships allow us to efficiently navigate bureaucracies and competing interests. Jaydot helps create a trustworthy network of support and accountability. Our effectiveness is visible in our work record: we work in more unit-based PSH buildings than any other provider.
       </p>
       <p class="mb-2">
         Jaydot is the unit-based PSH Provider for
-        <a href="https://aspiredcapts.com/">Aspire Apartments</a>{' '}
+        <a target="_blank" href="https://aspiredcapts.com/">Aspire Apartments</a>{' '}
          (Ward 8),
-        <a href="https://barnaby7th.com/">Barnaby & 7th Apartments</a>{' '}(Ward 8),
-        <a href="https://edgewoodcommons435.enterpriseresidential.org/">Edgewood Commons 435</a>{' '}(Ward 5),
-        <a href="https://beta.jubileehousing.org/housing/development/euckal/">EucKal</a>{' '}(Ward 1),
-        <a href="https://www.legacytemplecourts.com/">Legacy Temple Courts</a>{' '}(Ward 6), 
-        <a href="https://wesleyhousing.org/property/1-hawaii-avenue-ne/">One Hawaii</a>{' '}(Ward 5),
+        <a target="_blank" href="https://barnaby7th.com/">Barnaby & 7th Apartments</a>{' '}(Ward 8),
+        <a target="_blank" href="https://edgewoodcommons435.enterpriseresidential.org/">Edgewood Commons 435</a>{' '}(Ward 5),
+        <a target="_blank" href="https://beta.jubileehousing.org/housing/development/euckal/">EucKal</a>{' '}(Ward 1),
+        <a target="_blank" href="https://www.legacytemplecourts.com/">Legacy Temple Courts</a>{' '}(Ward 6), 
+        <a target="_blank" href="https://wesleyhousing.org/property/1-hawaii-avenue-ne/">One Hawaii</a>{' '}(Ward 5),
          Ontario Place (Ward 1), 
-        <a href="https://www.riggscrossing.com/">Riggs Crossing Senior Residences</a>{' '}(Ward 4), and 
-        <a href="https://thelouisedc.com/">The Louise on Western</a>{' '}(Ward 3). 
+        <a target="_blank" href="https://www.riggscrossing.com/">Riggs Crossing Senior Residences</a>{' '}(Ward 4), and 
+        <a target="_blank" href="https://thelouisedc.com/">The Louise on Western</a>{' '}(Ward 3). 
       </p>
+      </div>
     </div>
 
     <div class="mt-12">
@@ -81,15 +73,15 @@ import services from '@assets/images/resident-services.jpg'
         We coordinate and bolster relationships between residents, property managers, social service providers, and local organizations. Our ethos is to work alongside residents to ensure their housing feels like home. 
       </p>
       <p class="mb-2">Our resident services work includes:</p>
-      <ul class="mb-2 list-inside">
-        <li class="list-disc">Collaborating with residents to enroll in benefits and other services that help meet their needs </li>
-        <li class="list-disc">
+      <ul class="mb-2 table">
+        <li class="list-disc ml-4 -text-indent-4">Collaborating with residents to enroll in benefits and other services that help meet their needs </li>
+        <li class="list-disc ml-4 -text-indent-4">
           Partnering with residents to create social events that match their interests
         </li>
-        <li class="list-disc">
+        <li class="list-disc ml-4 -text-indent-4">
           Coordinating with property management and social service providers to solve operational issues
         </li>
-        <li class="list-disc">
+        <li class="list-disc ml-4 -text-indent-4">
           Building partnerships with local organizations to support residents’ integration to their neighborhood
         </li>
       </ul>
@@ -97,7 +89,7 @@ import services from '@assets/images/resident-services.jpg'
 
       <div class="mt-12">
         <Heading level="h2" size="h4">Consultation on affordable housing development and PSH</Heading>
-        <p class="mb-2">Jaydot consults with developers to address the unique needs of residents who have experienced homelessness. We consult on the entire development and tenancy process, from pre-development to lease-up, including navigating DC government procedures. Our work has made over 1,500 affordable housing units available for DC residents.</p>
+        <p class="my-2">Jaydot consults with developers to address the unique needs of residents who have experienced homelessness. We consult on the entire development and tenancy process, from pre-development to lease-up, including navigating DC government procedures. Our work has made over 1,500 affordable housing units available for DC residents.</p>
   
         <div class="mt-8">
           <Heading level="h3" size="h5">Current Projects</Heading>
@@ -121,64 +113,26 @@ import services from '@assets/images/resident-services.jpg'
 
       <div class="mt-8">
         <Image
-          class="mb-6 w-100 md:float-left md:mr-6"
-          src={help}
+          class="mb-4 w-100 md:float-left md:mr-6"
+          src={building}
           alt="FIXME"
+          height={320}
+          width={320}
           decoding="async"
-          loading="eager"
+          loading="lazy"
         />
         <Heading level="h3" size="h5">Completed Projects</Heading>
         <p class="mb-2">
-          <span class="underline">Diane's House</span>: 42-unit affordable new construction project with 39 PSH units. Located in NE DC, opened Sept. 2020. Client was Flaherty & Collins, an Indiana-based for-profit developer.
+          <a target="_blank" href="https://dianeshouse.org/pages/2619-bladensburg-road">Diane's House</a>: 42-unit affordable new construction project with 39 PSH units. Located in NE DC, opened Sept. 2020. Client was Flaherty & Collins, an Indiana-based for-profit developer.
         </p>
         <p class="mb-2">
-          <span class="underline">HELP Walter Reed Veteran Apartments</span>: 77-unit affordable rehabilitation project with 75 PSH units for Veterans. Located in NW DC, opened Dec. 2019. Client was HELP USA, an NYC-based nonprofit.
+          <a target="_blank" href="https://helpdevco.org/projects/help-walter-reed-veterans-apartments/">HELP Walter Reed Veteran Apartments</a>: 77-unit affordable rehabilitation project with 75 PSH units for Veterans. Located in NW DC, opened Dec. 2019. Client was HELP USA, an NYC-based nonprofit.
         </p>
         <p class="mb-2">
-          <span class="underline">The John and Jill Ker Conway Residence</span>: 124-unit affordable new construction project. Seventy-seven units are PSH, 60 of which are for Veterans, and 47 units are for individuals making 60% or below of the Area Median Income (AMI). Located in NE DC, completed Dec. 2016. Client is Community Solutions, an NYC-based nonprofit.
+          <a target="_blank" href="https://community.solutions/projects/the-john-and-jill-ker-conway-residence/">The John and Jill Ker Conway Residence</a>: 124-unit affordable new construction project. Seventy-seven units are PSH, 60 of which are for Veterans, and 47 units are for individuals making 60% or below of the Area Median Income (AMI). Located in NE DC, completed Dec. 2016. Client is Community Solutions, an NYC-based nonprofit.
         </p>
       </div>
-
-      <p class="my-2">
-        Diane's House is a 42-unit affordable new construction project with 39 Permanent Supportive Housing units
-        located in Northeast DC that opened in September 2020. Client was Flaherty & Collins, an Indiana based
-        for-profit developer.
-      </p>
-      <p class="mb-2">
-        HELP Walter Reed Veteran Apartments is a 77-unit affordable rehabilitation project with 75 PSH units for
-        Veterans located in Northwest DC that opened in December 2019. Client is HELP USA, a New York City based
-        non-profit.
-      </p>
-      <p class="mb-2">
-        The John and Jill Ker Conway Residence is 124-unit affordable new construction project located in Northeast DC
-        that was completed in December 2016. Seventy-seven units are PSH, 60 of which are for Veterans, and 47 units are
-        for individuals making 60% of the Area Median Income (AMI) or below. Client is Community Solutions, an NYC based
-        non-profit.
-      </p>
     </div>
-
-    <div class="mt-12">
-      <Heading level="h2" size="h4">Other projects</Heading>
-      <p class="my-2">
-        Sometimes a feeling is all we humans have to go on. Genius doesn't work on an assembly line basis. Did Einstein,
-        Kazanga or Sitar of Vulcan produce new and revolutionary theories on a regular schedule? You can't simply say,
-        'Today I will be brilliant.' It's hard to believe that something which is neither seen nor felt can do so much
-        harm. I'm Givin' Her All She's Got, Captain! It’s a — far, far better thing I do than I have ever done before; a
-        far better resting place I go to than I have ever known.” “…Is that a poem?” “…Mmm. Something Spock was trying
-        to tell me — on my birthday.
-      </p>
-      <p class="mb-2">
-        Genius doesn't work on an assembly line basis. Did Einstein, Kazanga or Sitar of Vulcan produce new and
-        revolutionary theories on a regular schedule? You can't simply say, 'Today I will be brilliant.'
-      </p>
-      <p>
-        Compassion: that's the one things no machine ever had. Maybe it's the one thing that keeps men ahead of them. To
-        be human is to be complex. You can't avoid a little ugliness -- from within -- and from without. He tasks me. He
-        tasks me; and I shall have him. I’ll chase him ’round the moons of Nibia and ’round the Antares maelstrom and
-        ’round Perdition’s flames before I give him up. It was the best of times, it was the worst of times.’
-      </p>
-    </div>
-  </div>
 
   <div class="mt-20 italic text-sm">Thanks to Robert Benson and Gus Powell for photos on this page.</div>
 

@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro'
-import { DarkMode, Link, SkipLink } from 'accessible-astro-components'
+import { Link, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
 /**
@@ -59,7 +59,7 @@ const nav = await res?.json()
     )}
     {nav?.["social-media"]?.["instagram-handle"] && (
       <li class="menu-item type-icon animate-rotate">
-        <Link href={`https://www.instagram.com/${nav?.["social-media"]["instagram-handle"]}/`}>
+        <Link target="_blank" href={`https://www.instagram.com/${nav?.["social-media"]["instagram-handle"]}/`}>
           <Icon aria-hidden="true" name="lucide:instagram" />
           <span class="sr-only">Follow us on Instagram</span>
         </Link>
