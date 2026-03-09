@@ -53,7 +53,6 @@ const team = [
     pronouns: 'she/her, they/them',
     title: 'PSH Case Manager',
     bio: 'Abby has worked in homeless services in Washington, DC since 2022. As a PSH Case Manager, Abby’s favorite part of the work is connecting with and learning from their clients – they find each person endlessly interesting and enjoy helping them bring out their unique strengths. She has a particular passion for harm reduction, street medicine, supporting people living with severe mental illness and dual diagnoses, and reducing client interaction with carceral systems. Abby has been involved in mutual aid efforts, including helping to establish a limited-equity cooperative to provide long-term affordable housing for longtime DC residents. With a BA in Environmental Studies from UNC-Chapel Hill, Abby approaches their work through a lens of social and economic justice, grounded in the belief that housing is a human right. ',
-    image: user,
   },
   {
     name: 'Ansley Gerhard',
@@ -230,9 +229,19 @@ const team = [
                   decoding="async"
                   width={160}
                   height={160}
-                  loading="eager"
+                  loading="lazy"
                 />
-              ) : null}
+              ) : (
+                <Image
+                  class='user-circle'
+                  src={user}
+                  alt="Placeholder user image."
+                  decoding="async"
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                />
+              )}
               <div class="mt-6">
                 <div>
                   <span class="text-2xl font-bold">{person.name}</span>{' '}
