@@ -186,14 +186,14 @@ const testimonials = [
   )}
 
   {data?.testimonials?.length && (
-    <section class="mb-8 md:mb-16">
+    <section class="my-8 py-8">
       <div class="container">
         <Heading level="h2" class="mb-8">Trusted by our participants</Heading>
         <p class="mb-12 italic">But don't take our word for it. See what they have to say.</p>
-        <div class="flex flex-wrap gap-4">
+        <div class="masonry">
           {
             data.testimonials.map((t: any) => (
-              <div class="testimonial w-full md:w-[49%] lg:w-[32%] only:w-full">
+              <div class="testimonial w-full break-inside-avoid mb-8">
                 <p class="mb-3">{t.quote}</p>
                 <p class="text-right italic">- {t.attribution}</p>
               </div>
@@ -216,7 +216,7 @@ const testimonials = [
   {data?.partners?.length && (
     <section class="mb-8 md:mb-16">
       <div class="container">
-        <Heading level="h2" class="mb-16">Our partners</Heading>
+        <Heading level="h2" class="mb-24">Our partners</Heading>
         <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
           {/* {data.partners.map((partner: any) => <FeaturedPartners src={partner.logo.url} alt={partner.logo.alt || `${partner.name}'s logo.'`} url={partner.url} />)} */}
           {partners.map((partner: any) => <FeaturedPartners src={partner.src} alt={partner.alt || `logo.'`} url={partner.url} />)}
