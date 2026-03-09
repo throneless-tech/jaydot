@@ -1,5 +1,5 @@
 ---
-import { Accordion, AccordionItem, Card, Heading, Link, Notification } from 'accessible-astro-components'
+import { Accordion, AccordionItem, Heading } from 'accessible-astro-components'
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { getCollection } from 'astro:content'
@@ -21,6 +21,31 @@ import user from '@assets/images/team/jaydot-user.png'
 // const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 // const team = await res?.json()
 
+// consultants with their bios
+const consultants = [
+  {
+    name: 'Alexis Kelley, MSW, LICSW',
+    pronouns: 'she/her',
+    title: 'Clinical Consultant',
+    bio: "Alexis Kelley is a Licensed Independent Clinical Social Worker (LICSW) originally from a small suburb in Northern California. Alexis received her Master’s in Social Welfare from UCLA and has spent her 8-year career servicing under-resourced, minority communities by providing behavioral health support and treatment. Her personal mission is to reduce mental health stigma in the African American community and help the disenfranchised to reclaim their power. In her free time, you can find Alexis and her partner exploring local dog parks and playing fetch with their mini poodles, Mayson and Zozo.",
+    image: alexis
+  },
+    {
+    name: 'Jasper Li, CPA',
+    pronouns: 'he/him',
+    title: 'Accounting Consultant',
+    bio: "Jasper is a Senior Manager at MyAdvisor360 LLC, where he leads client engagements across tax,accounting, and financial advisory services. His expertise spans corporate and partnership taxation, financial reporting, and multi-jurisdictional compliance—serving clients in industries such as real estate, manufacturing, and government contracting. At MyAdvisor360, Jasper oversees tax planning and compliance for both domestic and international entities, guiding clients through complex issues involving entity structuring, M&A transactions, and IRS negotiations. He also leads financial statement preparation and DCAA/FAR compliance projects for government contractors in the Washington, D.C. area. Known for his analytical precision and collaborative approach, Jasper is dedicated to helping clients align operational decisions with long-term tax and financial strategies. Jasper began his career in the public sector, focusing on tax compliance and policy analysis, before moving into the financial services industry, where he conducted market research and regulatory assessments across multiple Asian markets. Jasper holds a Master of Science in Accountancy from Wake Forest University and is a Certified Public Accountant licensed in Virginia, United States.",
+    image: jasper,
+  },
+  {
+    name: 'Sheryl Culliver-Turner, MBA',
+    pronouns: 'she/her',
+    title: 'Principal HR Consultant',
+    bio: "Sheryl is the Founder and Chief Executive Officer of sigma-Cogent Solutions, LLC, where she leads strategic human resources (HR) consulting solutions to strengthen operational infrastructure within mission-driven organizations. With more than 20 years of experience across multiple industries, she specializes in intersecting people strategy, regulatory compliance, and process improvement to strengthen the internal structure organizations need to sustain and expand their community impact. With deep expertise in HR audits, policy development, workplace and EEO investigations, and performance management design, Sheryl and her team partner with multi-state clients to build systems that promote accountability, regulatory integrity, and operational stability. These solutions sustain strong internal foundations, advancing clients’ ability to better serve the communities they are called to support. Her career is grounded in a defining commitment: empowering organizations and leaders to champion humanizing the workplace. Sheryl holds an MBA in Innovation & Entrepreneurship from Northeastern University’s D’Amore-McKim School of Business and has advanced training in Strategic HR Management. Beyond her professional commitments, she values time spent traveling with her husband, James, and quality time with their children, family members, and friends.",
+    image: sheryl
+  },
+]
+
 // team members with their bios
 const team = [
   {
@@ -29,13 +54,6 @@ const team = [
     title: 'PSH Case Manager',
     bio: 'Abby has worked in homeless services in Washington, DC since 2022. As a PSH Case Manager, Abby’s favorite part of the work is connecting with and learning from their clients – they find each person endlessly interesting and enjoy helping them bring out their unique strengths. She has a particular passion for harm reduction, street medicine, supporting people living with severe mental illness and dual diagnoses, and reducing client interaction with carceral systems. Abby has been involved in mutual aid efforts, including helping to establish a limited-equity cooperative to provide long-term affordable housing for longtime DC residents. With a BA in Environmental Studies from UNC-Chapel Hill, Abby approaches their work through a lens of social and economic justice, grounded in the belief that housing is a human right. ',
     image: user,
-  },
-  {
-    name: 'Alexis Kelley, MSW, LICSW',
-    pronouns: 'she/her',
-    title: 'Clinical Consultant',
-    bio: "Alexis Kelley is a Licensed Independent Clinical Social Worker (LICSW) originally from a small suburb in Northern California. Alexis received her Master’s in Social Welfare from UCLA and has spent her 8-year career servicing under-resourced, minority communities by providing behavioral health support and treatment. Her personal mission is to reduce mental health stigma in the African American community and help the disenfranchised to reclaim their power. In her free time, you can find Alexis and her partner exploring local dog parks and playing fetch with their mini poodles, Mayson and Zozo.",
-    image: alexis
   },
   {
     name: 'Ansley Gerhard',
@@ -108,13 +126,6 @@ const team = [
     image: user,
   },
   {
-    name: 'Jasper Li, CPA',
-    pronouns: 'he/him',
-    title: 'Accounting Consultant',
-    bio: "Jasper is a Senior Manager at MyAdvisor360 LLC, where he leads client engagements across tax,accounting, and financial advisory services. His expertise spans corporate and partnership taxation, financial reporting, and multi-jurisdictional compliance—serving clients in industries such as real estate, manufacturing, and government contracting. At MyAdvisor360, Jasper oversees tax planning and compliance for both domestic and international entities, guiding clients through complex issues involving entity structuring, M&A transactions, and IRS negotiations. He also leads financial statement preparation and DCAA/FAR compliance projects for government contractors in the Washington, D.C. area. Known for his analytical precision and collaborative approach, Jasper is dedicated to helping clients align operational decisions with long-term tax and financial strategies. Jasper began his career in the public sector, focusing on tax compliance and policy analysis, before moving into the financial services industry, where he conducted market research and regulatory assessments across multiple Asian markets. Jasper holds a Master of Science in Accountancy from Wake Forest University and is a Certified Public Accountant licensed in Virginia, United States.",
-    image: jasper,
-  },
-  {
     name: 'Lamar Childers',
     pronouns: 'he/him',
     title: 'PSH Case Manager',
@@ -178,12 +189,6 @@ const team = [
     image: logo,
   },
   {
-    name: 'Sheryl Culliver-Turner, MBA',
-    pronouns: 'she/her',
-    bio: "Sheryl is the Founder and Chief Executive Officer of sigma-Cogent Solutions, LLC, where she leads strategic human resources (HR) consulting solutions to strengthen operational infrastructure within mission-driven organizations. With more than 20 years of experience across multiple industries, she specializes in intersecting people strategy, regulatory compliance, and process improvement to strengthen the internal structure organizations need to sustain and expand their community impact. With deep expertise in HR audits, policy development, workplace and EEO investigations, and performance management design, Sheryl and her team partner with multi-state clients to build systems that promote accountability, regulatory integrity, and operational stability. These solutions sustain strong internal foundations, advancing clients’ ability to better serve the communities they are called to support. Her career is grounded in a defining commitment: empowering organizations and leaders to champion humanizing the workplace. Sheryl holds an MBA in Innovation & Entrepreneurship from Northeastern University’s D’Amore-McKim School of Business and has advanced training in Strategic HR Management. Beyond her professional commitments, she values time spent traveling with her husband, James, and quality time with their children, family members, and friends.",
-    image: sheryl
-  },
-  {
     name: 'Sophie Flatt, MSW, LGSW',
     pronouns: 'she/her',
     title: 'PSH Case Manager',
@@ -215,6 +220,43 @@ const team = [
       <div class="grid gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
         {
           team.map((person: any) => (
+            <div class="container mb-20 flex flex-col items-start justify-start">
+              {/* <Icon aria-hidden="true" name="lucide:circle-user-round" size={80} /> */}
+              {person.image ? (
+                <Image
+                  class='user-circle'
+                  src={person.image}
+                  alt={person.image?.alt || "Placeholder user image."}
+                  decoding="async"
+                  width={160}
+                  height={160}
+                  loading="eager"
+                />
+              ) : null}
+              <div class="mt-6">
+                <div>
+                  <div class="text-2xl font-bold">{person.name}</div>
+                  <div class="italic">({person.pronouns})</div>
+                </div>
+                <Accordion>
+                  <AccordionItem title={person.title} variant="chevron">
+                    <div class="mt-6">{person.bio}</div>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="container space-y-12">
+      <Heading level="h2">
+        Consultants
+      </Heading>
+      <div class="grid gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {
+          consultants.map((person: any) => (
             <div class="container mb-20 flex flex-col items-start justify-start">
               {/* <Icon aria-hidden="true" name="lucide:circle-user-round" size={80} /> */}
               {person.image ? (
