@@ -7,8 +7,11 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import CallToAction from '@components/CallToAction.astro'
 import { nullable, undefined } from 'astro:schema'
+import alexis from '@assets/images/team/alexis.jpg'
 import chapman from '@assets/images/team/chapman.jpg'
+import jasper from '@assets/images/team/jasper.jpg'
 import logo from '@assets/images/team/jaydot-fav-user.png'
+import sheryl from '@assets/images/team/sheryl.png'
 import user from '@assets/images/team/jaydot-user.png'
 
 // Get all portfolio projects
@@ -26,6 +29,13 @@ const team = [
     title: 'PSH Case Manager',
     bio: 'Abby has worked in homeless services in Washington, DC since 2022. As a PSH Case Manager, Abby’s favorite part of the work is connecting with and learning from their clients – they find each person endlessly interesting and enjoy helping them bring out their unique strengths. She has a particular passion for harm reduction, street medicine, supporting people living with severe mental illness and dual diagnoses, and reducing client interaction with carceral systems. Abby has been involved in mutual aid efforts, including helping to establish a limited-equity cooperative to provide long-term affordable housing for longtime DC residents. With a BA in Environmental Studies from UNC-Chapel Hill, Abby approaches their work through a lens of social and economic justice, grounded in the belief that housing is a human right. ',
     image: user,
+  },
+  {
+    name: 'Alexis Kelley, MSW, LICSW',
+    pronouns: 'she/her',
+    title: 'Clinical Consultant',
+    bio: "Alexis Kelley is a Licensed Independent Clinical Social Worker (LICSW) originally from a small suburb in Northern California. Alexis received her Master’s in Social Welfare from UCLA and has spent her 8-year career servicing under-resourced, minority communities by providing behavioral health support and treatment. Her personal mission is to reduce mental health stigma in the African American community and help the disenfranchised to reclaim their power. In her free time, you can find Alexis and her partner exploring local dog parks and playing fetch with their mini poodles, Mayson and Zozo.",
+    image: alexis
   },
   {
     name: 'Ansley Gerhard',
@@ -51,15 +61,99 @@ const team = [
   {
     name: 'Chapman Todd',
     pronouns: 'he/him',
-    title: 'Principal / Director of Special Projects',
-    bio: 'Chapman has 35 years of experience working on homelessness and housing issues in the Washington, DC area. In addition to his work at Jaydot, he contributes to shaping housing policies and initiatives in the District as a Board Member of both The Coalition (formerly CNHED) and The Community Partnership for the Prevention of Homelessness (TCP), and as a Member of the Leadership Council of the DC Reentry Housing Alliance. He is a graduate of Connecticut College and George Washington University Law School.',
+    title: 'Principal / Director of Housing Development',
+    bio: 'Chapman has 35 years of experience working on homelessness and housing issues in the Washington, DC area. A graduate of Connecticut College and the George Washington University Law School, Chapman brings a wealth of knowledge and expertise to his role at Jaydot and the larger DC affordable housing community. He also contributes to shaping housing policies and initiatives in the District as a Board Member of The Coalition (formerly CNHED / Coalition for Nonprofit Housing and Economic Development). While much of his work is macro-focused, Chapman’s passion lies in connecting in the community on a personal level.',
     image: chapman,
+  },
+  {
+    name: 'Crystal Palmer',
+    pronouns: 'she/her',
+    title: 'Administrative Coordinator',
+    bio: "Crystal has over 15 years of administrative experience. With a strong background in administration and advocacy, Crystal especially enjoys assisting underserved communities and helping individuals navigate complex services. As Jaydot’s Admin Coordinator, she supports the team to ensure they have the time and resources needed to focus on services and critical projects. Crystal is known for her adaptability, goal-driven approach, and contagious smile. Outside of work, she enjoys spending time with her family, exploring nature, and listening to podcasts. Originally from Hopewell, Virginia, she resides in District Heights, Maryland, with her husband and 16-year-old son, while her daughter pursues her college studies.",
+    image: user,
+  },
+  {
+    name: 'Darnell Canada',
+    pronouns: 'he/him',
+    title: 'Program Services Coordinator',
+    bio: "Lovett Darnell Canada has over a decade of experience in social services, particularly with youth and housing programs in DC and Maryland. Prior to joining Jaydot, Darnell worked on the administration of DC’s Home Purchase Assistance Program in addition to nearly a decade working with youth with experiences of trauma at Hearts and Homes for Youth in Silver Spring, MD. With a laid-back and chill personality, he finds fulfillment in helping others both at work and at home. Darnell lives in Maryland with his wife and three children, and is an avid sports fan.",
+    image: user,
+  },
+  {
+    name: 'Demetrius Walker',
+    pronouns: 'he/him',
+    title: 'PSH Case Manager',
+    bio: "Demetrius has worked as a case manager since 2023, bringing his passion for bettering his community, being a positive role model, and fostering self-sufficiency to the role. Previously, Demetrius worked at the Sasha Bruce Youthwork Independent Living Program, where he supported youth aged 18-24 in obtaining jobs, housing, education, and essential life skills, and consistently earned high satisfaction ratings from clients. For him, one of the most rewarding aspects of being a housing case manager is seeing people overcome challenges and find stability. Being there to help them every step of the way is even better. Demetrius holds a Bachelor of Science in Psychology from Radford University and is a member of Kappa Alpha Psi Fraternity. He lives in Washington, DC with his dog, Zo, and enjoys spending quality time with his family and friends.",
+    image: user,
+  },
+  {
+    name: 'Destiny Jackson',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Destiny has over eight years of experience in the homeless services field in DC and Maryland, spanning homelessness prevention, rapid rehousing, case management, and mentorship roles. A proud DC native, Destiny brings a deeply personal understanding to her work, having experienced homelessness herself as a teen and young adult, which fuels her dedication to uplifting others facing similar hardships. In her role as a Case Manager she strives to provide the support and compassionate accountability that she once needed. She is the founder of a nonprofit that has provided meals and toiletry bags to over 400 individuals experiencing homelessness in the DC area. Now based in Bowie with her family and their cat T.Challa, Destiny continues to serve with compassion, purpose, and a belief that no one is defined by their circumstances. Through her work at Jaydot, she is committed to helping the organization grow while ensuring every client receives the quality support and encouragement they deserve.",
+    image: user,
+  },
+  {
+    name: 'Emilie Wleklinski',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Emilie has worked in homelessness prevention in her native Maryland and Washington, DC since 2023. As a PSH Case Manager, she supports individuals and families in accessing and maintaining stable housing, grounded in intersectional feminism and other liberatory frameworks. Emilie most enjoys building meaningful relationships with her clients, celebrating their successes, and offering steadfast support through challenging times. A true extrovert, she thrives on connection, joy, and curiosity. Emilie has a Bachelors in Psychology from the University of Maryland and is currently working towards her Masters in Social Work at George Mason University. She lives in DC with her partner Benjamin and dreams of rescuing a dog soon. When she's not working, Emilie enjoys reading, cooking, spending time with loved ones, and watching reality TV with an anthropologist’s eye.",
+    image: user,
   },
   {
     name: 'Jacqueline Vélez Lippman',
     pronouns: 'she/her',
     title: 'Project Manager',
     bio: 'As a Project Manager with Jaydot, Jacqueline manages relationships with development partners, developing collaborative project work plans and ensuring the smooth progression of affordable housing projects in Washington, DC. Her work is driven by her passion for making DC an affordable, accessible place to live, especially for those who are currently unhoused. Known for her teamwork and morale-boosting abilities, Jacqueline is a supportive presence for her colleagues as well, always ready to lend a helping hand. She holds a Bachelor of Arts in Psychology, Philosophy, and Justice & Peace Studies from Georgetown University. Residing in Arlington, VA with her beloved cat, Mochi, Jacqueline enjoys spending her free time in nature, brunching with friends, and spending quality time with her sister. She cherishes trips to the beach, despite the lack of nearby coastlines.',
+    image: user,
+  },
+  {
+    name: 'Jasper Li, CPA',
+    pronouns: 'he/him',
+    title: 'Accounting Consultant',
+    bio: "Jasper is a Senior Manager at MyAdvisor360 LLC, where he leads client engagements across tax,accounting, and financial advisory services. His expertise spans corporate and partnership taxation, financial reporting, and multi-jurisdictional compliance—serving clients in industries such as real estate, manufacturing, and government contracting. At MyAdvisor360, Jasper oversees tax planning and compliance for both domestic and international entities, guiding clients through complex issues involving entity structuring, M&A transactions, and IRS negotiations. He also leads financial statement preparation and DCAA/FAR compliance projects for government contractors in the Washington, D.C. area. Known for his analytical precision and collaborative approach, Jasper is dedicated to helping clients align operational decisions with long-term tax and financial strategies. Jasper began his career in the public sector, focusing on tax compliance and policy analysis, before moving into the financial services industry, where he conducted market research and regulatory assessments across multiple Asian markets. Jasper holds a Master of Science in Accountancy from Wake Forest University and is a Certified Public Accountant licensed in Virginia, United States.",
+    image: jasper,
+  },
+  {
+    name: 'Lamar Childers',
+    pronouns: 'he/him',
+    title: 'PSH Case Manager',
+    bio: "Lamar brings over eighteen years of experience working in social services in DC and Northern Virginia. Prior to working with Jaydot, Lamar held various roles in which he assisted veterans experiencing homelessness with finding housing, helped TANF recipients overcome employment barriers, and coordinated in-home care for individuals with disabilities. His breadth of experience as well as his deep understanding of how programs operate inform his approach as a PSH Case Manager. Known for his adaptability and his faith, Lamar is dedicated to doing whatever is needed to help his clients succeed in securing safe, stable housing. He is a graduate of Bowie State University with a B.S. in Sociology and a concentration in Criminal Justice. Outside of work, Lamar enjoys gaming, traveling, cooking, watching sports (Go Commanders and Lakers!) and, above all, spending quality time with his wife.",
+    image: user,
+  },
+  {
+    name: 'Leah Reese',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Leah has been a passionate advocate for people experiencing homelessness in Washington, DC since 2016. She has held various roles within housing case management, resident services, and housing navigation, and has been instrumental in leasing up multiple site-based PSH projects with Jaydot. Leah’s commitment to helping others is evident in her current role as PSH Case Manager, where she finds immense joy in witnessing the happiness of participants when they get their housing vouchers and move into their new homes. Leah holds a Bachelor's degree in Psychology from Norfolk State University. Raised with the values of perseverance and authenticity, Leah strives to leave a lasting legacy that she and her family can be proud of. She aspires to eventually obtain a Master's degree in Clinical Mental Health, specializing in children’s developmental milestones. Leah resides in Oxon Hill, MD, with her partner, Marcus, and their furry baby, Cartier. She enjoys reading and spending quality time with her family.",
+    image: user,
+  },
+  {
+    name: 'Matthew Allen',
+    pronouns: 'he/him',
+    title: 'Resident Services Supervisor',
+    bio: "Matthew brings a wide range of experience to his role as Resident Services Supervisor with Jaydot, in which he designs and implements programming at affordable housing buildings throughout DC. Since 2016, he has served a diverse population of at-risk youth and adults who live with mental health and substance use disorders, providing support as they navigate their journey to self-sufficiency. He has also assisted people facing housing challenges, most notably as a Youth Re-Housing Manager, overseeing the multi-regional youth services program for a Massachusetts based non-profit. His work is grounded in his belief that everyone is valuable and worthy of dignity and honor, regardless of their background, past traumas, or current diagnoses. Matthew has an Associates of Applied Science in Human Services from Prince George’s Community College and is pursuing a degree in Social Work. Matthew hopes to one day pursue his Master’s in Social Work and start a mentoring program for young men in the DMV. He lives in Bowie, MD, with his wife and two young children, where he finds joy in spending quality time with his family, sharing laughs, and producing music whenever he can.",
+    image: logo,
+  },
+  {
+    name: 'Mikayla Hennings',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Mikayla has a passion for supporting families and individuals facing life's toughest challenges, which greatly influences how she approaches her work as a PSH Case Manager. She strives to provide services that empower people to focus on their personal growth and goals – without the constant worry of housing instability or safety – and finds immense fulfillment in witnessing clients regain hope and confidence. Mikayla recently graduated from Howard University with a Bachelor of Science in Psychology and a Biology minor, and is currently conducting research at Johns Hopkins School of Education on the cultural dimensions of race, culture, and ethnicity in relation to mental health. Outside of her professional endeavors, Mikayla enjoys studying, shopping, and crocheting. She is originally from St. Louis, Missouri and resides in Washington, DC.",
+    image: logo,
+  },
+  {
+    name: 'Nicole Jean, MEd',
+    pronouns: 'she/her',
+    title: 'Director of Programs',
+    bio: "Nicole has over 18 years of experience supporting individuals and families within social services across Washington, DC, Maryland, and Virginia. She has served as a Program Director for the last 15 years, specializing in residential services, mental health, developmental disabilities, and housing. As the Director of Programs with Jaydot, Nicole leads the Permanent Supportive Housing (PSH) and Resident Services Programs, focusing on ensuring the housing stability and well-being of people exiting homelessness. Nicole's commitment to advocating for clients' rights and dignity is a cornerstone of her approach to management and direct service, and she relishes seeing clients’ pure joy and excitement when they finally have a home of their own. Nicole holds a Bachelor's Degree in Human Relations from Trinity University and a Master's Degree in Secondary Education from Grand Canyon University. Outside of her professional life, Nicole enjoys spending quality time with her family, going on cruises, and attending her children's extracurricular activities and sporting events. She resides in Silver Spring, MD, with her husband, three sons, daughter, Midnight the dog, and Marley the spotted leopard gecko.",
+    image: logo,
+  },
+  {
+    name: 'Quiana Valentine-Johnson',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager Supervisor',
+    bio: "With over 15 years of experience, Quiana has been instrumental in supporting people throughout Washington, DC and Maryland in their journey towards self-sufficiency. Her work spans areas such as housing, education, employment, medical/mental health, and substance use. In her role as Case Manager Supervisor, Quiana equips case managers with the essential tools to effectively address the diverse needs of their clients. She finds immense fulfillment in empowering individuals to enhance the quality of their lives and dreams of one day establishing a transitional home for pregnant women and children. She earned her Bachelor of Arts in Human Relations from Trinity College and a Graduate Certificate in Human Resource Management from the University of Phoenix. Beyond her professional life, Quiana cherishes time spent with her family and goes camping with her husband every chance she gets. She resides with her husband, two sons, daughter, grandson, mother, and her beloved pets, Macy the cat and Ava the dog.",
     image: logo,
   },
   {
@@ -70,13 +164,39 @@ const team = [
     image: logo,
   },
   {
-    // src: sharlene,
+    name: 'Sharday Bradshaw',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Sharday is a Washington, DC native with 14 years of experience in social services ranging from intellectual disability to mental health and homeless services. Her creativity, passion, and big heart drive her to make a meaningful impact in her community. As a PSH Case Manager, she actively contributes to helping her clients make positive changes in their lives in addition to securing permanent housing. Sharday is an active member of The National Society of Leadership and Success and is currently pursuing her Bachelor's of Science in Social Work. Outside of her professional endeavors, Sharday enjoys writing music, traveling, and spending quality time with her daughter. Her ultimate goal is to secure a position as a Program Director in a related field and to establish a non-profit organization focused on homeless services and prevention.",
+    image: logo,
+  },
+  {
     name: 'Sharlene Castle, MPA',
     pronouns: 'she/her',
     title: 'Director of Operations',
-    bio: "Sharlene has worked on Permanent Supportive Housing in Washington, DC since 2017. In her current role, she ensures the Jaydot team has the resources and support they need to excel in their jobs and advises various stakeholders on the production, lease-up and operation of site-based PSH. Sharlene's early observations of the systemic issues that affect frontline social service workers and their clients drives her commitment to remain connected to on-the-ground realities and foster an environment where everyone she works with feels seen, heard, and valued. She holds a Bachelor’s degree in Women's Studies from San Diego State University, a Master’s in Public Administration from Cornell University and is a Returned Peace Corps Volunteer (China 2014-16). She is also co-chair of The Coalition's (formerly CNHED) Supportive Housing Working Group and the DC Housing Authority Provider’s Group. Outside of work, Sharlene enjoys backpacking, biking around DC, and relaxing at home in Mount Pleasant with her cat. She is passionate about creating a more compassionate society, ending homelessness, and enjoying anything filled with cheese.",
+    bio: "Sharlene has worked in Permanent Supportive Housing in Washington, DC since 2017. In her current role, she ensures the Jaydot team has the resources and support they need to excel in their jobs and advises various stakeholders on the production, lease-up and operation of site-based PSH. Sharlene's early observations of the systemic issues that affect frontline social service workers and their clients drives her commitment to remain connected to on-the-ground realities and foster an environment where everyone she works with feels seen, heard, and valued. She holds a Bachelor’s degree in Women's Studies from San Diego State University, a Master’s in Public Administration from Cornell University and is a Returned Peace Corps Volunteer (China 2014-16). She is also co-chair of CNHED’s Supportive Housing Working Group and the DCHA Provider’s Group. Outside of work, Sharlene enjoys backpacking, biking around DC, and relaxing on her porch in Mount Pleasant with her cat, Mali. She is passionate about creating a more compassionate society, ending homelessness, and enjoying anything filled with cheese.",
     image: logo,
   },
+  {
+    name: 'Sheryl Culliver-Turner, MBA',
+    pronouns: 'she/her',
+    bio: "Sheryl is the Founder and Chief Executive Officer of sigma-Cogent Solutions, LLC, where she leads strategic human resources (HR) consulting solutions to strengthen operational infrastructure within mission-driven organizations. With more than 20 years of experience across multiple industries, she specializes in intersecting people strategy, regulatory compliance, and process improvement to strengthen the internal structure organizations need to sustain and expand their community impact. With deep expertise in HR audits, policy development, workplace and EEO investigations, and performance management design, Sheryl and her team partner with multi-state clients to build systems that promote accountability, regulatory integrity, and operational stability. These solutions sustain strong internal foundations, advancing clients’ ability to better serve the communities they are called to support. Her career is grounded in a defining commitment: empowering organizations and leaders to champion humanizing the workplace. Sheryl holds an MBA in Innovation & Entrepreneurship from Northeastern University’s D’Amore-McKim School of Business and has advanced training in Strategic HR Management. Beyond her professional commitments, she values time spent traveling with her husband, James, and quality time with their children, family members, and friends.",
+    image: sheryl
+  },
+  {
+    name: 'Sophie Flatt, MSW, LGSW',
+    pronouns: 'she/her',
+    title: 'PSH Case Manager',
+    bio: "Sophie brings expertise in school-based homeless services, comprehensive assessments, and child welfare to her role as a PSH Case Manager with Jaydot. With professional experience across Virginia, South Carolina, and North Carolina, Sophie has held roles in child protective services, foster care, and as a school social worker. Shaped by a childhood rooted in community outreach, Sophie is passionate about creating safe, stable environments for individuals emerging from homelessness or domestic violence. She values building relationships, guiding clients through complex systems with empathy and consistency, and finds great joy in helping people not only access housing but also reclaim long-term stability and hope. She holds a Bachelors in Social Work and an Advanced Standing Masters in Social Work, earned with distinction from Liberty University. Outside of work, Sophie enjoys spending time with loved ones, going to baseball games, traveling, and exploring new foods.",
+    image: logo,
+  },
+  {
+    name: 'Tonnesha Anderson',
+    pronouns: 'she/her',
+    title: 'Resident Engagement Services Coordinator',
+    bio: 'Tonnesha has over six years of experience creating sustainable solutions to prevent homelessness and enhance access to affordable housing in the DMV area. With a passion for connecting people to vital social services that can transform their lives, Tonnesha is committed to fostering community well-being and ensuring that everyone has a place to call home. Outside of work, Tonnesha is focused on launching her first business and enjoys spending time with her friends and family in Northeast Washington, DC.',
+    image: logo,
+  }
 ]
 ---
 
