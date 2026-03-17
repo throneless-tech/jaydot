@@ -194,8 +194,8 @@ const partners = [
       <div class="container">
         <Heading level="h2" class="mb-24">Our partners</Heading>
         <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
-          {/* {data.partners.map((partner: any) => <FeaturedPartners src={partner.logo.url} alt={partner.logo.alt || `${partner.name}'s logo.'`} url={partner.url} />)} */}
-          {partners.map((partner: any) => <FeaturedPartners src={partner.src} alt={partner.alt || `logo.'`} url={partner.url} />)}
+          {data.partners.map((partner: any) => <FeaturedPartners partner={partner} />)}
+          {/* {partners.map((partner: any) => <FeaturedPartners src={partner.src} alt={partner.alt || `logo.'`} url={partner.url} />)} */}
         </div>
       </div>
     </section>

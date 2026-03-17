@@ -7,6 +7,7 @@ import { loadEnv } from "vite";
 import vercel from '@astrojs/vercel';
 
 const { PUBLIC_SERVER_URL } = loadEnv(process.env.PUBLIC_SERVER_URL, process.cwd(), "");
+const { PUBLIC_FE_URL } = loadEnv(process.env.PUBLIC_FE_URL, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,6 +54,6 @@ export default defineConfig({
     imageService: true,
   }),
   image: {
-    domains: [PUBLIC_SERVER_URL]
+    domains: [PUBLIC_SERVER_URL, PUBLIC_FE_URL]
   }
 })

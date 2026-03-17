@@ -6,30 +6,21 @@ import { Image } from 'astro:assets'
  * @description A component that displays a feature with an icon, title, and description
  */
 interface Props {
-  /**
-   * The logo to display
-   */
-  src: ImageMetadata
-  /**
-   * The alt text
-   */
-  alt: string
-  /**
-   * The url to link to
-   */
-  url: string
+  partner: any
 }
 
-const {src, alt = '', url = '#' }: Props = Astro.props
+const { partner }: Props = Astro.props
 
 ---
 
 <div class="feature-container">
-  <a class="feature-link" href={url}></a>
+  <a class="feature-link" href={partner.url}></a>
   <div class="feature">
     <Image
-      src={src}
-      alt={alt}
+      src={partner.logo.url}
+      alt={partner.logo.alt || `${partner.name}'s logo.'`}
+      width={partner.logo.width}
+      height={partner.logo.height}
       decoding="async"
       loading="eager"
       class="object-contain center"
