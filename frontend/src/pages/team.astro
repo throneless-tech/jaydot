@@ -2,23 +2,13 @@
 import { Accordion, AccordionItem, Heading } from 'accessible-astro-components'
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import CallToAction from '@components/CallToAction.astro'
-import { nullable, undefined } from 'astro:schema'
-import alexis from '@assets/images/team/alexis.jpg'
-import chapman from '@assets/images/team/chapman.jpg'
-import jasper from '@assets/images/team/jasper.jpg'
 import logo from '@assets/images/team/jaydot-fav-user.png'
-import sheryl from '@assets/images/team/sheryl.png'
 import user from '@assets/images/team/jaydot-user.png'
 
-// Get all portfolio projects
-// const projects = await getCollection('projects')
-
 // team members with their bios
-// const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
+// const res = await fetch(`$process.env.PUBLIC_API_URL}/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 // const team = await res?.json()
 
 // consultants with their bios
@@ -28,21 +18,21 @@ const consultants = [
     pronouns: 'she/her',
     title: 'Clinical Consultant',
     bio: "Alexis Kelley is a Licensed Independent Clinical Social Worker (LICSW) originally from a small suburb in Northern California. Alexis received her Master’s in Social Welfare from UCLA and has spent her 8-year career servicing under-resourced, minority communities by providing behavioral health support and treatment. Her personal mission is to reduce mental health stigma in the African American community and help the disenfranchised to reclaim their power. In her free time, you can find Alexis and her partner exploring local dog parks and playing fetch with their mini poodles, Mayson and Zozo.",
-    image: alexis
+    image: user
   },
     {
     name: 'Jasper Li, CPA',
     pronouns: 'he/him',
     title: 'Accounting Consultant',
     bio: "Jasper is a Senior Manager at MyAdvisor360 LLC, where he leads client engagements across tax,accounting, and financial advisory services. His expertise spans corporate and partnership taxation, financial reporting, and multi-jurisdictional compliance—serving clients in industries such as real estate, manufacturing, and government contracting. At MyAdvisor360, Jasper oversees tax planning and compliance for both domestic and international entities, guiding clients through complex issues involving entity structuring, M&A transactions, and IRS negotiations. He also leads financial statement preparation and DCAA/FAR compliance projects for government contractors in the Washington, D.C. area. Known for his analytical precision and collaborative approach, Jasper is dedicated to helping clients align operational decisions with long-term tax and financial strategies. Jasper began his career in the public sector, focusing on tax compliance and policy analysis, before moving into the financial services industry, where he conducted market research and regulatory assessments across multiple Asian markets. Jasper holds a Master of Science in Accountancy from Wake Forest University and is a Certified Public Accountant licensed in Virginia, United States.",
-    image: jasper,
+    image: logo,
   },
   {
     name: 'Sheryl Culliver-Turner, MBA',
     pronouns: 'she/her',
     title: 'Principal HR Consultant',
     bio: "Sheryl is the Founder and Chief Executive Officer of sigma-Cogent Solutions, LLC, where she leads strategic human resources (HR) consulting solutions to strengthen operational infrastructure within mission-driven organizations. With more than 20 years of experience across multiple industries, she specializes in intersecting people strategy, regulatory compliance, and process improvement to strengthen the internal structure organizations need to sustain and expand their community impact. With deep expertise in HR audits, policy development, workplace and EEO investigations, and performance management design, Sheryl and her team partner with multi-state clients to build systems that promote accountability, regulatory integrity, and operational stability. These solutions sustain strong internal foundations, advancing clients’ ability to better serve the communities they are called to support. Her career is grounded in a defining commitment: empowering organizations and leaders to champion humanizing the workplace. Sheryl holds an MBA in Innovation & Entrepreneurship from Northeastern University’s D’Amore-McKim School of Business and has advanced training in Strategic HR Management. Beyond her professional commitments, she values time spent traveling with her husband, James, and quality time with their children, family members, and friends.",
-    image: sheryl
+    image: user
   },
 ]
 
@@ -80,7 +70,7 @@ const team = [
     pronouns: 'he/him',
     title: 'Principal / Director of Housing Development',
     bio: 'Chapman has 35 years of experience working on homelessness and housing issues in the Washington, DC area. A graduate of Connecticut College and the George Washington University Law School, Chapman brings a wealth of knowledge and expertise to his role at Jaydot and the larger DC affordable housing community. He also contributes to shaping housing policies and initiatives in the District as a Board Member of The Coalition (formerly CNHED / Coalition for Nonprofit Housing and Economic Development). While much of his work is macro-focused, Chapman’s passion lies in connecting in the community on a personal level.',
-    image: chapman,
+    image: logo,
   },
   {
     name: 'Crystal Palmer',

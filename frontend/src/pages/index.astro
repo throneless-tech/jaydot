@@ -29,9 +29,17 @@ import TWHC from '@assets/partners/TWHC.png'
 import urbanAtlantic from '@assets/partners/urban-atlantic.png'
 import wesley from '@assets/partners/wesley.png'
 
-// fetch homepage data
-const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/globals/homepage?depth=2&draft=false&locale=undefined&trash=false`)
-const data = await res?.json()
+let data;
+let err;
+
+try {
+  // fetch homepage data
+  data = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000"}/api/globals/homepage?depth=2&draft=false&locale=undefined&trash=false`).then(r => r.json()).catch(e => console.log(`ERROR: ${e.message}`));
+} catch (e) {
+  err = e.message;
+}
+
+
 
 const partners = [
   {
@@ -121,38 +129,6 @@ const partners = [
   },
 ]
 
-const testimonials = [
-  {
-    title: 'John Doe',
-    description:
-      "Without followers, evil cannot spread. Curious, how often you humans manage to obtain that which you do not want. When the personality of a human is involved, exact predictions are hazardous. Instruments register only through things they're designed to register. Space still contains infinite unknowns. I'm Givin' Her All She's Got, Captain! You’ve never really faced death, have you?” “...No; not like this. I haven’t faced death. I’ve cheated death. I’ve tricked my way out of death and patted myself on the back for my ingenuity; I know nothing.",
-  },
-  {
-    title: 'Jane Doe',
-    description:
-      'Sometimes a feeling is all we humans have to go on. With the first link, the chain is forged. The first speech censored, the first thought forbidden, the first freedom denied, chains us all irrevocably. Improve a mechanical device and you may double productivity. But improve man, you gain a thousandfold. Khaaannnn! So much for the little training cruise.',
-  },
-  {
-    title: 'Firstname Lastname',
-    description:
-      "A library serves no purpose unless someone is using it. Insults are effective only where emotion is present. Humans do have an amazing capacity for believing what they choose -- and excluding that which is painful. Leave bigotry in your quarters; there's no room for it on the bridge. The intellect is not all... but its cultivation must come first, or the individual makes errors... wastes time in unprofitable pursuits. I speak of rights!",
-  },
-  {
-    title: 'Firstname Lastname',
-    description:
-      'A machine has none; a man must. If you do not grant him that right, you have brought us down to the level of the machine; indeed, you have elevated that machine above us! Improve a mechanical device and you may double productivity. But improve man, you gain a thousandfold. I object to intellect without discipline; I object to power without constructive purpose.',
-  },
-  {
-    title: 'Firstname Lastname',
-    description:
-      "Sometimes a feeling is all we humans have to go on. Genius doesn't work on an assembly line basis. Did Einstein, Kazanga or Sitar of Vulcan produce new and revolutionary theories on a regular schedule? You can't simply say, 'Today I will be brilliant.' A lie is a very poor way to say hello. To all mankind -- may we never find space so vast, planets so cold, heart and mind so empty that we cannot fill them with love and warmth. Khaaannnn! So much for the little training cruise.",
-  },
-  {
-    title: 'Firstname Lastname',
-    description:
-      "If we're going to be damned, let's be damned for what we really are. Insufficient facts always invite danger. When a child is taught, it's programmed with simple instructions, and at some point, if its mind develops properly, it exceeds the sum of what it was taught, thinks independently. Our species can only survive if we have obstacles to overcome. You remove those obstacles. Without them to strengthen us, we will weaken and die. Instruments register only through things they're designed to register. Space still contains infinite unknowns. Beam Me Up, Scotty!",
-  },
-]
 ---
 
 <DefaultLayout title="Home">

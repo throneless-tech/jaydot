@@ -1,30 +1,28 @@
 import { defineConfig } from 'astro/config'
 import { fileURLToPath } from 'url'
-import compress from 'astro-compress'
 import icon from 'astro-icon'
-import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
-import netlify from '@astrojs/netlify';
 import { loadEnv } from "vite";
+import vercel from '@astrojs/vercel';
 
 const { PUBLIC_SERVER_URL } = loadEnv(process.env.PUBLIC_SERVER_URL, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-  compressHTML: true,
+  legacy: {
+    collectionsBackwardsCompat: true,
+  },
   site: 'https://jaydot.org',
   integrations: [
-    compress(),
+    (await import("astro-compress")).default(),
     icon({
       include: {
-        iconDir: "./src/assets/icons",
+        iconDir: "src/assets/icons",
       },
     }),
-    mdx(),
     sitemap()
   ],
-
   vite: {
     css: {
       preprocessorOptions: {
@@ -44,14 +42,15 @@ export default defineConfig({
         '@content': fileURLToPath(new URL('./src/content', import.meta.url)),
         '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
         '@public': fileURLToPath(new URL('./public', import.meta.url)),
-        '@post-images': fileURLToPath(new URL('./public/posts', import.meta.url)),
-        '@project-images': fileURLToPath(new URL('./public/projects', import.meta.url)),
       },
     },
   },
   output: 'server',
-  adapter: netlify({
-    imageCDN: false,
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    imageService: true,
   }),
   image: {
     domains: [PUBLIC_SERVER_URL]
