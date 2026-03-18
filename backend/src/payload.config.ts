@@ -21,17 +21,14 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
+  csrf: [
+    'http://localhost:3000'
+  ],
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    // dependencies: {
-    //   rowLabel: {
-    //     path: './components/arrayRowLabel.tsx#ArrayRowLabel',
-    //     type: 'component',
-    //   }
-    // }
     // livePreview: {
     //   url: 'http://localhost:4321',
     //   collections: ['pages'],

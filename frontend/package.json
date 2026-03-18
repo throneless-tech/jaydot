@@ -58,6 +58,7 @@
     "tailwindcss": "^4.1.13"
   },
   "dependencies": {
+    "@astrojs/react": "^5.0.1",
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/vercel": "^10.0.1",
     "@payloadcms/db-postgres": "^3.79.1",

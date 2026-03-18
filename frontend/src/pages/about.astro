@@ -2,8 +2,10 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Heading } from 'accessible-astro-components'
-import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
+import { RichTextComp } from '@components/richText';
+
+
 import building1 from '@assets/images/about/building-1.jpg'
 import building2 from '@assets/images/about/building-2.jpg'
 import dignity from '@assets/images/about/dignity.jpg'
@@ -11,6 +13,25 @@ import humility from '@assets/images/about/humility-2.jpg'
 import innovation from '@assets/images/about/innovation.jpg'
 import justice from '@assets/images/about/justice.jpg'
 import powerSharing from '@assets/images/about/power-sharing.jpg'
+
+let data;
+let err;
+
+try {
+  // fetch page data
+  const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/pages/3?depth=2&draft=false&locale=undefined&trash=false`)
+
+  console.log('res is: ');
+  console.log(res);
+
+  data = await res?.json()
+} catch (e) {
+  err = e.message;
+}
+
+if (err) {
+  console.log(`An error occurred: ${err}`);
+}
 
 // Define approaches with their descriptions
 const approaches = [
@@ -43,84 +64,61 @@ const approaches = [
 ---
 
 <DefaultLayout
-  title="About"
-  description="Jaydot is a mission-based organization dedicated to ending homelessness in DC by helping people find housing that feels like home."
+  title={data?.title}
+  description={data?.subtitle}
 >
   <PageHeader
-    title="About Us"
-    subtitle="Jaydot is a mission-based organization dedicated to ending homelessness in DC by helping people find housing that feels like home."
+    title={data?.title}
+    subtitle={data?.subtitle}
     bgType="gradient"
   />
 
   <section class="my-16">
     <div class="container space-y-12">
-      <div id="history">
-        <Heading level="h2" class="mb-6">Our history</Heading>
-        <div class="mb-20">
-          <Image
-            class="md:float-left w-100 md:mr-6 mb-6"
-            src={building1}
-            alt="Image alt text goes here."
-            width={600}
-            priority
-          />
-          <div>
-            <p class="mb-4">
-              Jaydot was started in 2010 to fill a gap in housing solutions for people exiting homelessness in DC. Our work is based on the fundamental idea that the solution to homelessness is housing. Although Jaydot has grown in size and scope, we maintain our human-centered approach. Our focus remains on seeking innovation and excellence at the intersection of affordable housing, supportive services, and creating vibrant communities.
-            </p>
-            <p class="mb-4">
-              In both our Permanent Supportive Housing (PSH) and Resident Services programs, we focus on providing voluntary, wraparound onsite services at residences. Our Principal, Chapman Todd, was inspired to focus on this model based on his 20+ years of work in homeless services in DC. During that time, Chapman spent a decade working as part of the two person management team in the early days of the DC Central Kitchen, and then spent a decade as the Director of Housing Programs and Housing Development with Catholic Charities.
-            </p>
-            <p class="mb-4">
-              We are often asked why Jaydot is an LLC rather than a nonprofit. Because of structural and legal differences, we believe that being an LLC allows us to work more efficiently and with greater allegiance to our mission. Our team can be nimble and responsive to changing needs and circumstances in a way that can be complicated within more rigid, top-down governance structures. And, we can fully dedicate our time to providing excellent services because we don't have the overhead that comes with staffing and sustaining extensive fundraising efforts. Our structure lets us focus on the heart of our work: ensuring that housing solutions are adapted to fit the needs of those we serve.
-            </p>
-            <p>
-              And about our name… "Jaydot" was suggested to Chapman by his then 9-year-old child, who he asked for ideas. Chapman thought the name hit the mark – confident, concise, unlimited in scope, and a little playful. As in so much of our work, the real meaning is in the relationship.
-            </p>
-          </div>
+
+      <!-- History section -->
+      {data?.history && (
+        <div id="history">
+          <Heading level="h2" class="mb-6">Our history</Heading>
+
+          <RichTextComp data={data.history} />
         </div>
+      )}
+
+      {data?.mission && (
         <div id="mission">
           <Heading level="h2" class="mb-2">Our mission</Heading>
+          <p>{data.mission}</p>
         </div>
-        <p>
-          Our mission is to create innovative, quality housing solutions that address the needs of those impacted by social inequity. We believe that housing is a human right, homelessness is a solvable problem, and we can create an equitable, human-centered system where housing solutions are readily adapted to fit the needs of those we serve. 
-        </p>
+      )}
 
+      {data?.values && data?.values?.length && (
         <div id="values" class="mt-20">
           <Heading level="h2" class="mb-2">Our values</Heading>
+          <p class="italic">We strive to embody these core values in our daily work:</p>
+          <div class="masonry sm:masonry-sm md:masonry-md gap-8 mt-10">
+            {data.values.map(value => (
+              <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+                <Image
+                  class="w-300 cover rounded-t-lg relative"
+                  src={value.image.url}
+                  alt={value.image.alt}
+                  width={value.image.width}
+                  height={value.image.height}
+                  decoding="async"
+                  loading="lazy"
+                />
+                <div class="rounded-b-lg bg-(--brand-primary) p-4 text-(--brand-light-olive)">
+                  <Heading level="h3" class="mb-2">{value.title}</Heading>
+                  <p>{value.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <p class="italic">We strive to embody these core values in our daily work:</p>
-        <div class="masonry sm:masonry-sm md:masonry-md gap-8 mt-10">
-          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
-            <Image
-              class="w-300 cover rounded-t-lg relative"
-              src={dignity}
-              alt="Image alt text goes here."
-              decoding="async"
-              loading="lazy"
-            />
-            <div class="rounded-b-lg bg-(--brand-primary) p-4 text-(--brand-light-olive)">
-              <Heading level="h3" class="mb-2">Dignity</Heading>
-              <p>We value the inherent dignity, humanity, self-determination, and worth of all people.</p>
-            </div>
-          </div>
-          <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
-            <Image
-              class="w-full cover rounded-t-lg relative"
-              src={justice}
-              alt="Image alt text goes here."
-              decoding="async"
-              loading="lazy"
-            />
-            <div class="rounded-b-lg bottom-0 left-0 bg-(--brand-primary)/90 p-4 text-(--brand-light-olive)">
-              <Heading level="h3" class="mb-2">Justice</Heading>
-              <p>
-                Many of the challenges we seek to address are a direct result of intersecting systems of oppression, in
-                particular anti-Black racism. We are committed to honoring people’s unique histories, perspectives, and
-                ways of being, and working towards a system in which all people are free.
-              </p>
-            </div>
-          </div>
+      )}
+          
+          
           <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
             <Image
               class="w-full cover rounded-t-lg relative"
@@ -187,7 +185,6 @@ const approaches = [
               </p>
             </div>
           </div>
-        </div>
 
       <div id="approach" class="mt-20">
         <Heading level="h2" class="mb-2">Our approach</Heading>

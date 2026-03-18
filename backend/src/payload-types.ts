@@ -174,7 +174,36 @@ export interface Media {
  */
 export interface Page {
   id: number;
-  title?: string | null;
+  title: string;
+  subtitle: string;
+  /**
+   * The URL, or slug, of this page. For instance, 'title' or 'page-title'. May not contain whitespace.
+   */
+  url: string;
+  history?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  mission?: string | null;
+  values?:
+    | {
+        title: string;
+        description: string;
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -302,6 +331,18 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  subtitle?: T;
+  url?: T;
+  history?: T;
+  mission?: T;
+  values?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

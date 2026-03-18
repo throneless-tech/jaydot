@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { loadEnv } from "vite";
 import vercel from '@astrojs/vercel';
+import react from '@astrojs/react';
 
 const { PUBLIC_SERVER_URL } = loadEnv(process.env.PUBLIC_SERVER_URL, process.cwd(), "");
 const { PUBLIC_FE_URL } = loadEnv(process.env.PUBLIC_FE_URL, process.cwd(), "");
@@ -16,6 +17,7 @@ export default defineConfig({
   },
   site: 'https://jaydot.org',
   integrations: [
+    react(),
     (await import("astro-compress")).default(),
     icon({
       include: {
