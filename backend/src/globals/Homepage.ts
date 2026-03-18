@@ -34,6 +34,11 @@ export const Homepage: GlobalConfig = {
       name: 'whatWeDoCard',
       label: 'What we do',
       type: 'array',
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
       fields: [
         {
           name: 'title',
@@ -99,6 +104,11 @@ export const Homepage: GlobalConfig = {
     {
       name: 'partners',
       type: 'array',
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
       fields: [
         {
           name: 'name',

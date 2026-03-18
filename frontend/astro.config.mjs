@@ -51,9 +51,9 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    imageService: true,
   }),
   image: {
-    domains: [PUBLIC_SERVER_URL, PUBLIC_FE_URL]
+    remotePatterns: [{ protocol: "https" }],
+    domains: [PUBLIC_SERVER_URL]
   }
 })

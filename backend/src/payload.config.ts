@@ -26,6 +26,12 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    // dependencies: {
+    //   rowLabel: {
+    //     path: './components/arrayRowLabel.tsx#ArrayRowLabel',
+    //     type: 'component',
+    //   }
+    // }
     // livePreview: {
     //   url: 'http://localhost:4321',
     //   collections: ['pages'],

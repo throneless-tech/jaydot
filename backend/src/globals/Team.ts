@@ -13,6 +13,11 @@ export const Team: GlobalConfig = {
       name: 'people',
       type: 'array',
       required: true,
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
       fields: [
         {
           name: 'name',
