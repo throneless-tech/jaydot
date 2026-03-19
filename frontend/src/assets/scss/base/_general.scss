@@ -28,10 +28,7 @@ a {
   }
 }
 
-main a,
-footer a {
-  @include text-decoration(var(--link-color), var(--link-hover-color));
-
+main a {
   color: var(--link-color);
 
   &:where(:hover, :focus-visible) {
@@ -48,6 +45,27 @@ footer a {
       margin-block-start: 3px;
     }
   }
+}
+
+footer a {
+  @include text-decoration(var(--footer-link-color), var(--footer-link-hover-color));
+  
+    color: var(--footer-link-color) !important;
+  
+    &:where(:hover, :focus-visible) {
+      color: var(--footer-link-hover-color) !important;
+    }
+  
+    &.external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3xs);
+  
+      // small visual correction
+      svg {
+        margin-block-start: 3px;
+      }
+    }
 }
 
 *:focus,

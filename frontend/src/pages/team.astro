@@ -21,6 +21,7 @@ import quiana from '@assets/images/team/quiana.jpg'
 import sharday from '@assets/images/team/sharday.jpeg'
 import sharlene from '@assets/images/team/sharlene.jpeg'
 import sheryl from '@assets/images/team/sheryl.png'
+import teamFull from '@assets/images/team/team-placeholder.png'
 
 // team members with their bios
 // const res = await fetch(`$process.env.PUBLIC_API_URL}/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
@@ -215,14 +216,24 @@ const team = [
   description="Our team is united by core values that we strive to embody in our work: dignity, justice, innovation, humility, power sharing, and holistic thinking. Each person’s unique experiences strengthen our organization. Together, we bring a wide range of skills and perspectives to working toward our collective mission."
 >
   <PageHeader
-    title="Our Team"
+    title="Our team"
     subtitle="Our team is united by core values that we strive to embody in our work: dignity, justice, innovation, humility, power sharing, and holistic thinking. Each person’s unique experiences strengthen our organization. Together, we bring a wide range of skills and perspectives to working toward our collective mission."
     bgType="gradient"
   />
 
   <section class="my-16">
     <div class="container space-y-12">
-      <div class="grid gap-6 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
+      <div class="w-full h-full md:h-[300px] overflow-hidden">
+        <Image
+          src={teamFull}
+          alt={"Placeholder all team image."}
+          decoding="async"
+          loading="lazy"
+          inferSize
+        />
+      </div>
+
+      <div class="mt-24 grid gap-6 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
         {
           team.map((person: any) => (
             <div class="container mb-20 flex flex-col items-start justify-start">
@@ -266,6 +277,13 @@ const team = [
         }
       </div>
     </div>
+
+    <CallToAction
+        title="Want to join our team?"
+        link="https://jaydot.breezy.hr"
+        linkText="See job openings"
+        icon="users"
+      />
 
     <div class="container space-y-12">
       <Heading level="h2">
@@ -315,13 +333,6 @@ const team = [
         }
       </div>
     </div>
-
-    <CallToAction
-      title="Want to join our team?"
-      link="https://jaydot.breezy.hr"
-      linkText="See job openings"
-      icon="users"
-    />
   </section>
 </DefaultLayout>
 
