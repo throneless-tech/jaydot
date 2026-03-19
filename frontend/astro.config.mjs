@@ -8,7 +8,6 @@ import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 
 const { PUBLIC_SERVER_URL } = loadEnv(process.env.PUBLIC_SERVER_URL, process.cwd(), "");
-const { PUBLIC_FE_URL } = loadEnv(process.env.PUBLIC_FE_URL, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({

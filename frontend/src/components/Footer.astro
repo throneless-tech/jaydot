@@ -23,9 +23,6 @@ try {
   // fetch nav links
   const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
 
-  console.log('res is: ');
-  console.log(res);
-
   nav = await res?.json()
 } catch (e) {
   err = e.message;

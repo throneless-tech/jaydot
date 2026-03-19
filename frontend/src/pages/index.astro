@@ -4,30 +4,8 @@ import Hero from '@components/Hero.astro'
 import Feature from '@components/Feature.astro'
 import CallToAction from '@components/CallToAction.astro'
 import Counter from '@components/Counter.astro'
-import ContentMedia from '@components/ContentMedia.astro'
-import FeaturedProjects from '@components/FeaturedProjects.astro'
-import FeaturedPosts from '@components/FeaturedPosts.astro'
-import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+import { Heading } from 'accessible-astro-components'
 import FeaturedPartners from '@components/FeaturedPartners.astro'
-
-import bba from '@assets/partners/bba.png'
-import CNHED from '@assets/partners/CNHED.png'
-import CS from '@assets/partners/CS.png'
-import DHS from '@assets/partners/DCDHS_logo.jpg'
-import enterprise from '@assets/partners/enterprise.jpg'
-import gilbane from '@assets/partners/gilbane.png'
-import gwcf from '@assets/partners/gwcf.png'
-import HDC from '@assets/partners/HDC.png'
-import housingAnd from '@assets/partners/housing-and.png'
-import housingUp from '@assets/partners/HousingUp.png'
-import jubileeHousing from '@assets/partners/jubilee-housing.png'
-import lisner from '@assets/partners/lisner.gif'
-import NRP from '@assets/partners/NRP.png'
-import trueGround from '@assets/partners/true-ground.png'
-import TWHC from '@assets/partners/TWHC.png'
-import urbanAtlantic from '@assets/partners/urban-atlantic.png'
-import wesley from '@assets/partners/wesley.png'
 
 let data;
 let err;
@@ -38,96 +16,6 @@ try {
 } catch (e) {
   err = e.message;
 }
-
-
-
-const partners = [
-  {
-    src: bba,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: CNHED,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: CS,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-    {
-    src: DHS,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: enterprise,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: gilbane,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: gwcf,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: HDC,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: housingAnd,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-    {
-    src: housingUp,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: jubileeHousing,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: lisner,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: NRP,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: trueGround,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: TWHC,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: urbanAtlantic,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-  {
-    src: wesley,
-    alt: "Partner name's logo.",
-    url: '#FIXME',
-  },
-]
 
 ---
 
@@ -195,7 +83,6 @@ const partners = [
         <Heading level="h2" class="mb-24">Our partners</Heading>
         <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
           {data.partners.map((partner: any) => <FeaturedPartners partner={partner} />)}
-          {/* {partners.map((partner: any) => <FeaturedPartners src={partner.src} alt={partner.alt || `logo.'`} url={partner.url} />)} */}
         </div>
       </div>
     </section>

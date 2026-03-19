@@ -23,7 +23,7 @@ import src from '@assets/images/jaydot-windows.jpg'
     <div class="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2">
       <div class="flex flex-col gap-8 md:items-start">
         <h1 class="text-6xl/18 leading-18 lg:text-8xl/28 lg:leading-28">
-          <slot><span class="text-gradient">Affordable housing</span> solutions for DC</slot>
+          <slot><span class="text-gradient">Human-centered housing</span><br />solutions<br />for DC</slot>
         </h1>
         <div class="flex flex-col gap-3 lg:flex-row">
           <Link class="min-w-[270px]" href="/about" isButton type="primary" animateOnHover animationType="boop">
@@ -67,8 +67,8 @@ import src from '@assets/images/jaydot-windows.jpg'
       light-dark(var(--brand-primary), var(--color-secondary-100)) 25%,
       light-dark(var(--brand-secondary), var(--color-primary-200))
     );
-    background-clip: border-box;
-    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
     -webkit-text-fill-color: transparent;
   }
 </style>

@@ -20,10 +20,7 @@ let err;
 try {
   // fetch page data
   const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/pages/3?depth=2&draft=false&locale=undefined&trash=false`)
-
-  console.log('res is: ');
-  console.log(res);
-
+  
   data = await res?.json()
 } catch (e) {
   err = e.message;
