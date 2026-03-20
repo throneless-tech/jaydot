@@ -1,8 +1,56 @@
-import type { CollectionConfig } from 'payload'
+import type { Block, CollectionConfig } from 'payload'
 import { title } from 'process'
 import { text } from 'stream/consumers'
 
 const regex = /\s/
+
+const TextBlock: Block = {
+  slug: 'Text editor',
+  imageURL: '/images/textblock.png',
+  imageAltText: 'A screenshot of what text in a text editor can look like on the website.',
+  fields: [
+    {
+      name: 'text',
+      type: 'richText',
+      required: true,
+    },
+  ],
+}
+
+const ValuesBlock: Block = {
+  slug: 'Values section',
+  imageURL: '/images/values.png',
+  imageAltText: 'A screenshot of what the values section can look like on the website.',
+  fields: [
+    {
+      name: 'values',
+      type: 'array',
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ]
+    },
+  ]
+}
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -33,43 +81,14 @@ export const Pages: CollectionConfig = {
       // TODO add validation
     },
     {
-      name: 'history',
-      label: 'Our History',
-      type: 'richText',
+      name: 'sections',
+      type: 'blocks', 
+      blocks: [
+        TextBlock,
+        ValuesBlock,
+      ],
     },
-    {
-      name: 'mission',
-      label: 'Our Mission',
-      type: 'textarea'
-    },
-    {
-      name: 'values',
-      label: 'Our Values',
-      type: 'array',
-      admin: {
-        components: {
-          RowLabel: "@/components/arrayRowLabel",
-        },
-      },
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          required: true,
-        },
-        {
-          name: 'image',
-          type: 'upload',
-          relationTo: 'media',
-          required: true,
-        },
-      ]
-    },
+    
 
   ],
 }

@@ -1,5 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { lexicalEditor, BlocksFeature } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -36,7 +36,36 @@ export default buildConfig({
   },
   globals: [Homepage, Nav, Team],
   collections: [Users, Media, Pages],
-  editor: lexicalEditor(),
+  editor: lexicalEditor({
+    features: ({defaultFeatures}) => [
+      ...defaultFeatures,
+      BlocksFeature({
+        blocks: [
+          {
+            slug: 'floatImage',
+            fields: [
+              {
+                name: 'image',
+                type: 'upload',
+                relationTo: 'media',
+                required: true,
+              },
+              {
+                name: 'float',
+                type: 'select',
+                options: [
+                  'Center',
+                  'Left',
+                  'Right',
+                ],
+                defaultValue: 'Left',
+              }
+            ]
+          }
+        ]
+      })
+    ]
+  }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

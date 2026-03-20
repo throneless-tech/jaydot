@@ -180,29 +180,42 @@ export interface Page {
    * The URL, or slug, of this page. For instance, 'title' or 'page-title'. May not contain whitespace.
    */
   url: string;
-  history?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  mission?: string | null;
-  values?:
-    | {
-        title: string;
-        description: string;
-        image: number | Media;
-        id?: string | null;
-      }[]
+  sections?:
+    | (
+        | {
+            text: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Text editor';
+          }
+        | {
+            values?:
+              | {
+                  title: string;
+                  description: string;
+                  image: number | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Values section';
+          }
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -333,15 +346,30 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
   url?: T;
-  history?: T;
-  mission?: T;
-  values?:
+  sections?:
     | T
     | {
-        title?: T;
-        description?: T;
-        image?: T;
-        id?: T;
+        'Text editor'?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'Values section'?:
+          | T
+          | {
+              values?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
