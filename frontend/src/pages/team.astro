@@ -11,6 +11,7 @@ import teamFull from '@assets/images/team/team-placeholder.png'
 // team members with their bios
 const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 const team = await res?.json()
+console.log(team);
 
 ---
 
@@ -26,15 +27,16 @@ const team = await res?.json()
 
   <section class="my-16">
     <div class="container space-y-12">
-      <div class="w-full h-full md:h-[300px] overflow-hidden">
-        <Image
-          src={teamFull}
-          alt={"Placeholder all team image."}
-          decoding="async"
-          loading="lazy"
-          inferSize
-        />
-      </div>
+      {team?.teamPhoto && (
+        <div class="w-full h-full md:h-[300px] overflow-hidden">
+          <img
+            src={team.teamPhoto.url}
+            alt={team.teamPhoto.alt || "Placeholder all team image."}
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+      )}
 
       <div class="mt-24 grid gap-6 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
         {

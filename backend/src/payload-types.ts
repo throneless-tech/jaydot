@@ -517,22 +517,27 @@ export interface Nav {
  */
 export interface Team {
   id: number;
-  people: {
-    name: string;
-    pronouns?: string | null;
-    title: string;
-    bio: string;
-    image?: (number | null) | Media;
-    id?: string | null;
-  }[];
-  consultants: {
-    name: string;
-    pronouns?: string | null;
-    title: string;
-    bio: string;
-    image?: (number | null) | Media;
-    id?: string | null;
-  }[];
+  teamPhoto?: (number | null) | Media;
+  people?:
+    | {
+        name: string;
+        pronouns?: string | null;
+        title: string;
+        bio: string;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  consultants?:
+    | {
+        name: string;
+        pronouns?: string | null;
+        title: string;
+        bio: string;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -623,6 +628,7 @@ export interface NavSelect<T extends boolean = true> {
  * via the `definition` "team_select".
  */
 export interface TeamSelect<T extends boolean = true> {
+  teamPhoto?: T;
   people?:
     | T
     | {

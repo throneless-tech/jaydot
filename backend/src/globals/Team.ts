@@ -10,9 +10,13 @@ export const Team: GlobalConfig = {
   },
   fields: [
     {
+      name: 'teamPhoto',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'people',
       type: 'array',
-      required: true,
       admin: {
         components: {
           RowLabel: "@/components/arrayRowLabel",
@@ -48,7 +52,6 @@ export const Team: GlobalConfig = {
     {
       name: 'consultants',
       type: 'array',
-      required: true,
       admin: {
         components: {
           RowLabel: "@/components/arrayRowLabel",
