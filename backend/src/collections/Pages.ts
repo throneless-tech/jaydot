@@ -52,6 +52,35 @@ const ValuesBlock: Block = {
   ]
 }
 
+const ApproachesBlock: Block = {
+  slug: 'Approaches section',
+  imageURL: '/images/approaches.png',
+  imageAltText: 'A screenshot of what the approaches section can look like on the website.',
+  fields: [
+    {
+      name: 'approaches',
+      type: 'array',
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+      ]
+    },
+  ]
+}
+
 export const Pages: CollectionConfig = {
   slug: 'pages',
   access: {
@@ -71,7 +100,7 @@ export const Pages: CollectionConfig = {
       unique: true,
     },
     {
-      name: 'url',
+      name: 'slug',
       type: 'text',
       required: true,
       unique: true,
@@ -86,6 +115,7 @@ export const Pages: CollectionConfig = {
       blocks: [
         TextBlock,
         ValuesBlock,
+        ApproachesBlock,
       ],
     },
     

@@ -1,0 +1,95 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
+import { RichTextComp } from '@components/richText';
+
+// fetch page data
+const response = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/pages`)
+const data = await response.json()
+
+const { slug } = Astro.params;
+const page = data.docs.find((p) => p.slug === slug);
+if (!page) return Astro.redirect("/404");
+
+---
+
+<DefaultLayout
+  title={page?.title}
+  description={page?.subtitle}
+>
+  <PageHeader
+    title={page?.title}
+    subtitle={page?.subtitle}
+    bgType="gradient"
+  />
+
+  <section class="my-16">
+    <div class="container space-y-12">
+
+      {page?.sections && page?.sections?.length && page.sections.map(section => (
+        <>
+          {section.blockType == 'Text editor' ? (
+            <RichTextComp data={section.text} />
+          ) : section.blockType == 'Values section' ? (
+            <div id="values" class="mt-20">
+              <Heading level="h2" class="mb-2">Our values</Heading>
+              <p class="italic">We strive to embody these core values in our daily work:</p>
+              <div class="masonry sm:masonry-sm md:masonry-md gap-8 mt-10">
+                {section.values.map(value => (
+                  <div class="mb-4 border-2 rounded-lg border-(--brand-orange) p-4 md:w-120 break-inside-avoid">
+                    <Image
+                      class="w-300 cover rounded-t-lg relative"
+                      src={value.image.url}
+                      alt={value.image.alt}
+                      width={value.image.width}
+                      height={value.image.height}
+                      decoding="async"
+                      loading="lazy"
+                    />
+                    <div class="rounded-b-lg bg-(--brand-primary) p-4 text-(--brand-light-olive)">
+                      <Heading level="h3" class="mb-2">{value.title}</Heading>
+                      <p>{value.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : section.blockType == 'Approaches section' ? (
+            <div id="approach" class="mt-20">
+              <Heading level="h2" class="mb-2">Our approach</Heading>
+              <p class="mb-12 italic">
+                We approach our mission through these practices:
+              </p>
+              <div class="">
+               {section.approaches.map((approach) => (
+                    <article>
+                      <Heading level="h3" size="h6" class="mb-3">
+                        {approach.title}
+                      </Heading>
+                      <p class="mb-3">{approach.description}</p>
+                    </article>
+                  ))
+                }
+              </div>
+            </div>
+          ) : null}
+        </>
+      ))}
+      
+    </div>
+
+
+  </section>
+</DefaultLayout>
+
+<style>
+  article {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-large);
+    background-color: var(--background-color);
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+</style>

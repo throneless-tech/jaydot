@@ -68,6 +68,7 @@
     "accessible-astro-components": "^5.2.0",
     "graphql": "^16.13.1",
     "payload": "^3.76.0",
+    "qs": "^6.15.0",
     "sharp": "^0.34.5"
   }
 }

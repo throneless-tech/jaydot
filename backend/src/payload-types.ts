@@ -179,7 +179,7 @@ export interface Page {
   /**
    * The URL, or slug, of this page. For instance, 'title' or 'page-title'. May not contain whitespace.
    */
-  url: string;
+  slug: string;
   sections?:
     | (
         | {
@@ -214,6 +214,18 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'Values section';
+          }
+        | {
+            approaches?:
+              | {
+                  title: string;
+                  description: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Approaches section';
           }
       )[]
     | null;
@@ -345,7 +357,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
-  url?: T;
+  slug?: T;
   sections?:
     | T
     | {
@@ -365,6 +377,19 @@ export interface PagesSelect<T extends boolean = true> {
                     title?: T;
                     description?: T;
                     image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'Approaches section'?:
+          | T
+          | {
+              approaches?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
                     id?: T;
                   };
               id?: T;
@@ -500,6 +525,14 @@ export interface Team {
     image?: (number | null) | Media;
     id?: string | null;
   }[];
+  consultants: {
+    name: string;
+    pronouns?: string | null;
+    title: string;
+    bio: string;
+    image?: (number | null) | Media;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -591,6 +624,16 @@ export interface NavSelect<T extends boolean = true> {
  */
 export interface TeamSelect<T extends boolean = true> {
   people?:
+    | T
+    | {
+        name?: T;
+        pronouns?: T;
+        title?: T;
+        bio?: T;
+        image?: T;
+        id?: T;
+      };
+  consultants?:
     | T
     | {
         name?: T;

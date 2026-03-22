@@ -45,5 +45,41 @@ export const Team: GlobalConfig = {
         }
       ],
     },
+    {
+      name: 'consultants',
+      type: 'array',
+      required: true,
+      admin: {
+        components: {
+          RowLabel: "@/components/arrayRowLabel",
+        },
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'pronouns',
+          type: 'text',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'bio',
+          type: 'textarea',
+          required: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        }
+      ],
+    },
   ],
 }
