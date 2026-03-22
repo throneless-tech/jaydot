@@ -31,4 +31,14 @@
     margin-top: 0.5em;
     max-width: 400px;
   }
+
+  ul {
+    list-style: outside disc;
+    margin-bottom: 1em;
+    
+    li {
+      left: 1em;
+      position: relative;
+    }
+  }
 }
