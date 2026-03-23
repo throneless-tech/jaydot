@@ -5,6 +5,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 
 // globals
 import { Homepage } from './globals/Homepage'
@@ -12,9 +13,10 @@ import { Nav } from './globals/Nav'
 import { Team } from './globals/Team'
 
 // collections
-import { Users } from './collections/Users'
+import { FormSubmissions } from './collections/FormSubmissions'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,8 +36,20 @@ export default buildConfig({
     //   collections: ['pages'],
     // },
   },
+  email: nodemailerAdapter({
+    defaultFromAddress: 'noreply@jaydot.org',
+    defaultFromName: 'No reply',
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      }
+    }
+  }),
   globals: [Homepage, Nav, Team],
-  collections: [Users, Media, Pages],
+  collections: [Users, Media, Pages, FormSubmissions],
   editor: lexicalEditor({
     features: ({defaultFeatures}) => [
       ...defaultFeatures,

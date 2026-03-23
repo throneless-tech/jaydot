@@ -1,6 +1,4 @@
 import type { Block, CollectionConfig } from 'payload'
-import { title } from 'process'
-import { text } from 'stream/consumers'
 
 const regex = /\s/
 

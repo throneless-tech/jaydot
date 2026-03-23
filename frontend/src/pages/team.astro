@@ -11,7 +11,6 @@ import teamFull from '@assets/images/team/team-placeholder.png'
 // team members with their bios
 const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 const team = await res?.json()
-console.log(team);
 
 ---
 
