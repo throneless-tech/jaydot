@@ -10,6 +10,18 @@ export const Homepage: GlobalConfig = {
   },
   fields: [
     {
+      name: 'title',
+      type: 'text',
+      required: true,
+      defaultValue: 'Home'
+    },
+    {
+      name: 'subtitle',
+      type: 'text',
+      required: true,
+      defaultValue: 'Jaydot provides human-centered housing solutions for DC.'
+    },
+    {
       name: 'stats',
       type: 'array',
       fields: [

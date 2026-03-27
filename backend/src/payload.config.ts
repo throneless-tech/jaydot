@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 // globals
 import { Homepage } from './globals/Homepage'
@@ -39,14 +40,16 @@ export default buildConfig({
   email: nodemailerAdapter({
     defaultFromAddress: 'noreply@jaydot.org',
     defaultFromName: 'No reply',
-    transportOptions: {
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+    transport: nodemailer.createTransport({
+      name: process.env.SMTP_NAME,
+      // host: process.env.SMTP_HOST,
+      // port: process.env.SMTP_PORT,
+      service: process.env.SMTP_SERVICE,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       }
-    }
+    })
   }),
   globals: [Homepage, Nav, Team],
   collections: [Users, Media, Pages, FormSubmissions],

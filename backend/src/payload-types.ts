@@ -476,6 +476,8 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Homepage {
   id: number;
+  title: string;
+  subtitle: string;
   stats?:
     | {
         amount: string;
@@ -523,6 +525,10 @@ export interface Homepage {
  */
 export interface Nav {
   id: number;
+  /**
+   * A sitewide description of the website, used as a fallback for SEO.
+   */
+  SEOdescription: string;
   items: {
     title: string;
     url: string;
@@ -577,6 +583,8 @@ export interface Team {
  * via the `definition` "homepage_select".
  */
 export interface HomepageSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
   stats?:
     | T
     | {
@@ -626,6 +634,7 @@ export interface HomepageSelect<T extends boolean = true> {
  * via the `definition` "nav_select".
  */
 export interface NavSelect<T extends boolean = true> {
+  SEOdescription?: T;
   items?:
     | T
     | {

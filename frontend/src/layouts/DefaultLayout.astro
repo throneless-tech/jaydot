@@ -6,12 +6,28 @@ import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 import { ClientRouter } from 'astro:transitions'
 
+let data;
+let err;
+
+try {
+  // fetch nav links
+  const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/nav?depth=1&draft=false&locale=undefined&trash=false`)
+
+  data = await res?.json()
+} catch (e) {
+  err = e.message;
+}
+
+if (err) {
+  console.log(`An error occurred: ${err}`);
+}
+
 const {
   title = 'Jaydot',
-  description = 'Jaydot is a mission-based social enterprise focused on creating affordable housing solutions for people in the Washington DC area, particularly those who have experienced homelessness.',
+  description = data?.SEOdescription || 'Jaydot provides human-centered housing solutions for DC.',
   url = Astro.site,
   image = 'jaydot-windows.jpg',
-  author = 'Throneless Tech',
+  author = 'Jaydot',
 } = Astro.props
 ---
 

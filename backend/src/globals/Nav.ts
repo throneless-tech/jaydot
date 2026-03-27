@@ -11,7 +11,18 @@ export const Nav: GlobalConfig = {
   },
   fields: [
     {
+      name: 'SEOdescription',
+      label: 'SEO Description',
+      admin: {
+        description: 'A sitewide description of the website, used as a fallback for SEO.'
+      },
+      type: 'textarea',
+      required: true,
+      defaultValue: ''
+    },
+    {
       name: 'items',
+      label: 'Nav Menu Items',
       type: 'array',
       required: true,
       maxRows: 8,
