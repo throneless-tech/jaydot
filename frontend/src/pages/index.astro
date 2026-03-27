@@ -77,10 +77,10 @@ try {
   )}
 
   {data?.partners?.length && (
-    <section class="mb-8 md:mb-16">
+    <section class="mb-8 md:mb-24">
       <div class="container">
-        <Heading level="h2" class="mb-24">Our partners</Heading>
-        <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
+        <Heading level="h2" class="mb-2">Our partners</Heading>
+        <div class="grid gap-8 md:gap-20 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {data.partners.map((partner: any) => <FeaturedPartners partner={partner} />)}
         </div>
       </div>

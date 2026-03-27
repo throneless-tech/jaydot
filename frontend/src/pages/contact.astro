@@ -1,8 +1,14 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Form, Input, Button, Textarea, Checkbox, Fieldset, Heading, Link, Radio } from 'accessible-astro-components'
+import { Form, Input, Button, Textarea, Heading, Link, Notification} from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
+import { actions } from 'astro:actions';
+
+const result = Astro.getActionResult(actions.formSubmission);
+if (result && !result.error) {
+  return Astro.redirect(`/thank-you`);
+}
 ---
 
 <DefaultLayout title="Contact">
@@ -15,7 +21,12 @@ import { Icon } from 'astro-icon/components'
     <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
       <div class="space-content">
         <Heading level="h2" size="h4">Send us a message</Heading>
-        <Form name="contact" action="/thank-you" method="post">
+        {result?.error && (
+          <Notification>
+            <p>There was an error submitting the form. Please try again later.</p>
+          </Notification>
+        )}
+        <form id="contact-form" method="POST" action={actions.formSubmission}>
           <!-- Input field with custom validation message -->
           <Input
             name="name"
@@ -55,7 +66,7 @@ import { Icon } from 'astro-icon/components'
           <div class="italic">Please leave an email or phone number if you'd like us to reply to your message.</div>
 
           <Button htmlType="submit" type="primary">Send Message</Button>
-        </Form>
+        </form>
       </div>
       <div class="space-content">
         <Heading level="h2" size="h4">Email us</Heading>
@@ -136,4 +147,3 @@ import { Icon } from 'astro-icon/components'
     </div>
   </section>
 </DefaultLayout>
-
