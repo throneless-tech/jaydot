@@ -10,6 +10,18 @@ export const Team: GlobalConfig = {
   },
   fields: [
     {
+      name: 'title',
+      type: 'text',
+      required: true,
+      defaultValue: 'Our team'
+    },
+    {
+      name: 'subtitle',
+      type: 'textarea',
+      required: true,
+      defaultValue: ''
+    },
+    {
       name: 'teamPhoto',
       type: 'upload',
       relationTo: 'media',

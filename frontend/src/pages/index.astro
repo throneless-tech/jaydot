@@ -22,9 +22,9 @@ try {
 <DefaultLayout title="Home">
   <Hero />
   {data?.stats?.length && (
-    <section class="mt-12 py-12 mb-18 md:mt-30 md:mb-32">
+    <section class="py-8 mb-18 md:mt-0 md:mb-16">
         <div class="container">
-          <Heading level="h2" class="md:mb-16">Our impact so far:</Heading>
+          <Heading level="h2" class="mb-8 md:mb-16">Our impact so far:</Heading>
           <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
             {data.stats.map((stat: any) => (
               <Counter count={stat.amount} title={stat.text} sub={stat.subtext} />
@@ -52,8 +52,7 @@ try {
   {data?.testimonials?.length && (
     <section class="my-8 py-8">
       <div class="container">
-        <Heading level="h2" class="mb-8">Trusted by our participants & partners</Heading>
-        <p class="mb-12 italic">But don't take our word for it. See what they have to say.</p>
+        <Heading level="h2" class="mb-12">Trusted by our participants & partners</Heading>
         <div class="masonry">
           {
             data.testimonials.map((t: any) => (

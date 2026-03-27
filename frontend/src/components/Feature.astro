@@ -75,7 +75,7 @@ const { icon = 'mdi:rocket', title = 'Title', url = '#' }: Props = Astro.props
       z-index: 0;
       inset: var(--space-m) -0.85rem -0.85rem 1rem;
       border-radius: var(--radius-l);
-      background-color: var(--link-color);
+      background-color: var(--footer-link-color);
     }
 
     &-container {
@@ -106,7 +106,7 @@ const { icon = 'mdi:rocket', title = 'Title', url = '#' }: Props = Astro.props
   :global(.feature [data-icon]) {
     inline-size: 4rem;
     block-size: auto;
-    color: var(--link-color);
+    color: var(--footer-link-color) !important;
   }
 
   :global(.darkmode .feature::before) {

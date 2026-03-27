@@ -15,12 +15,12 @@ const team = await res?.json()
 ---
 
 <DefaultLayout
-  title="Team"
-  description="Our team is united by core values that we strive to embody in our work: dignity, justice, innovation, humility, power sharing, and holistic thinking. Each person’s unique experiences strengthen our organization. Together, we bring a wide range of skills and perspectives to working toward our collective mission."
+  title={team.title}
+  description={team.subtitle}
 >
   <PageHeader
-    title="Our team"
-    subtitle="Our team is united by core values that we strive to embody in our work: dignity, justice, innovation, humility, power sharing, and holistic thinking. Each person’s unique experiences strengthen our organization. Together, we bring a wide range of skills and perspectives to working toward our collective mission."
+    title={team.title}
+    subtitle={team.subtitle}
     bgType="gradient"
   />
 

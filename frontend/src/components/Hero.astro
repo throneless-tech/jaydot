@@ -18,14 +18,14 @@ import src from '@assets/images/jaydot-windows.jpg'
 // const { src = '/jaydot-windows.jpg' }: Props = Astro.props
 ---
 
-<section class="hero my-4 md:mt-12 md:mb-30">
+<section class="hero my-4 md:mt-12 md:mb-8">
   <div class="container">
-    <div class="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2">
-      <div class="flex flex-col gap-8 md:items-start">
-        <h1 class="text-6xl/18 leading-18 lg:text-8xl/28 lg:leading-28">
-          <slot><span class="text-gradient">Human-centered housing</span><br />solutions<br />for DC</slot>
+    <div class="flex flex-col md:flex-row md:gap-4 lg:gap-8 justify-between">
+      <div class="md:flex-0 flex-col gap-8 md:items-start">
+        <h1 class="text-6xl/18 leading-18 ">
+          <slot><span class="text-gradient">Human-centered housing solutions for DC</span></slot>
         </h1>
-        <div class="flex flex-col gap-3 lg:flex-row">
+        <div class="flex flex-col gap-4 lg:flex-row my-8">
           <Link class="min-w-[270px]" href="/about" isButton type="primary" animateOnHover animationType="boop">
             <Icon aria-hidden="true" name="lucide:house-heart" size="1.5rem" />
             Learn how we work
@@ -36,7 +36,9 @@ import src from '@assets/images/jaydot-windows.jpg'
           </Link>
         </div>
       </div>
-      <Image class="hero-image" src={src} alt="Image alt text goes here." width={1000} priority />
+      <div class="md:h-[450px] md:w-[450px]">
+        <Image class="hero-image" src={src} alt="Image alt text goes here." width={800} priority />
+      </div>
     </div>
   </div>
 </section>

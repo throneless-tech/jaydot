@@ -554,6 +554,8 @@ export interface Nav {
  */
 export interface Team {
   id: number;
+  title: string;
+  subtitle: string;
   teamPhoto?: (number | null) | Media;
   people?:
     | {
@@ -668,6 +670,8 @@ export interface NavSelect<T extends boolean = true> {
  * via the `definition` "team_select".
  */
 export interface TeamSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
   teamPhoto?: T;
   people?:
     | T
