@@ -84,6 +84,9 @@ export const Pages: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    preview: ({ slug }) => `http://localhost:4321/${slug}`,
+  },
   fields: [
     {
       name: 'title',

@@ -8,6 +8,9 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import nodemailer from 'nodemailer'
 
+import { Logo } from './graphics/Logo';
+import { Icon } from './graphics/Icon';
+
 // globals
 import { Homepage } from './globals/Homepage'
 import { Nav } from './globals/Nav'
@@ -32,6 +35,22 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      robots: 'noindex, nofollow',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/favicon.png',
+        },
+      ]
+    },
+    components: {
+      graphics: {
+        Logo,
+        Icon,
+      }
+    }
     // livePreview: {
     //   url: 'http://localhost:4321',
     //   collections: ['pages'],
