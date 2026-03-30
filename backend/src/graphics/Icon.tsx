@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Icon = () => (
+export const Icon: any = () => (
   <div className="icon">
     <img
       src="/favicon.png"
