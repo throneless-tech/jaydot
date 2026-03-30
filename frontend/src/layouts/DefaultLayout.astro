@@ -44,6 +44,14 @@ const {
 
     <!-- Enable Astro View Transitions for all browsers -->
     <ClientRouter />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('recaptcha-element', {
+          'sitekey' : import.meta.env.RECAPTCHA_SITE_KEY
+        });
+      };
+    </script>
   </head>
   <body>
     <Header />

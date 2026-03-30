@@ -11,7 +11,22 @@ export const server = {
       message: z.string()
     }),
     handler: async (input) => {
-      return `Data is: ${input}`
+      try {
+        const req = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000"}/api/formSubmissions`, {
+          method: "POST", 
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(input),
+        })
+        const data = await req.json()
+        return data
+      } catch (err) {
+        console.log(err)
+        return err.message;
+      }
+
     }
   })
 }

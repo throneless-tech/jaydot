@@ -6,7 +6,8 @@ import { Icon } from 'astro-icon/components'
 import { actions } from 'astro:actions';
 
 const result = Astro.getActionResult(actions.formSubmission);
-if (result && !result.error) {
+
+if (result && !result.data?.errors) {
   return Astro.redirect(`/thank-you`);
 }
 ---
@@ -21,8 +22,8 @@ if (result && !result.error) {
     <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
       <div class="space-content">
         <Heading level="h2" size="h4">Send us a message</Heading>
-        {result?.error && (
-          <Notification>
+        {result?.data?.errors && (
+          <Notification type="warning" role="status" variant="accent">
             <p>There was an error submitting the form. Please try again later.</p>
           </Notification>
         )}
@@ -63,7 +64,9 @@ if (result && !result.error) {
             <Radio name="experience" value="advanced" label="Advanced" />
           </Fieldset> -->
 
-          <div class="italic">Please leave an email or phone number if you'd like us to reply to your message.</div>
+          <div class="italic my-4">Please leave an email or phone number if you'd like us to reply to your message.</div>
+
+          <div class="mb-8 g-recaptcha" id="recaptcha-element" data-sitekey={import.meta.env.RECAPTCHA_SITE_KEY}></div>
 
           <Button htmlType="submit" type="primary">Send Message</Button>
         </form>
@@ -147,3 +150,7 @@ if (result && !result.error) {
     </div>
   </section>
 </DefaultLayout>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>

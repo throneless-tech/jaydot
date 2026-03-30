@@ -1,9 +1,21 @@
 import type { CollectionConfig } from 'payload'
+import { anyone } from './access/anyone'
+import { beforeValidateHook } from './hooks/checkFormSubmission'
 
 export const FormSubmissions: CollectionConfig = {
   slug: 'formSubmissions',
     admin: {
     defaultColumns: ['name', 'email'],
+  },
+    access: {
+    read: ({ req: { user }, data }) => {
+      return Boolean(user)
+    },
+    create: anyone,
+    update: () => false,
+    delete: ({ req: { user }, data }) => {
+      return Boolean(user)
+    },
   },
   fields: [
     {
@@ -24,7 +36,8 @@ export const FormSubmissions: CollectionConfig = {
       type: 'textarea',
     }
   ],
-  // hooks: {
+  hooks: {
+    beforeValidate: [beforeValidateHook],
   //   afterChange: [
   //     async ({ doc, operation, req }) => {
   //       if (operation === 'create') {
@@ -38,5 +51,5 @@ export const FormSubmissions: CollectionConfig = {
   //       }
   //     }
   //   ]
-  // }
+  }
 }
