@@ -51,27 +51,15 @@ export default buildConfig({
         Icon,
       }
     }
-    // livePreview: {
-    //   url: 'http://localhost:4321',
-    //   collections: ['pages'],
-    // },
   },
   email: nodemailerAdapter({
     defaultFromAddress: 'noreply@jaydot.org',
     defaultFromName: 'No reply',
     transport: nodemailer.createTransport({
-      name: process.env.SMTP_NAME,
-      // host: process.env.SMTP_HOST,
-      // port: process.env.SMTP_PORT,
       service: process.env.SMTP_SERVICE,
       auth: {
-        type: "OAuth2",
         user: process.env.SMTP_USER,
-        clientId: process.env.SMTP_CLIENT_ID,
-        clientSecret: process.env.SMTP_CLIENT_SECRET,
-        refreshToken: process.env.SMTP_REFRESH_TOKEN,
-        // accessToken: process.env.SMTP_ACCESS_TOKEN,
-        // expires: new Date().getTime(), 
+        pass: process.env.SMTP_PASS
       }
     })
   }),
