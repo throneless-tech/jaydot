@@ -6,8 +6,6 @@ import { Image } from 'astro:assets'
 import CallToAction from '@components/CallToAction.astro'
 import logo from '@assets/images/team/jaydot-fav-user.png'
 
-import teamFull from '@assets/images/team/team-placeholder.png'
-
 // team members with their bios
 const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/team?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
 const team = await res?.json()

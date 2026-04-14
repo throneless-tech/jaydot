@@ -12,6 +12,7 @@ import { Logo } from './graphics/Logo';
 import { Icon } from './graphics/Icon';
 
 // globals
+import { Contact } from './globals/Contact'
 import { Homepage } from './globals/Homepage'
 import { Nav } from './globals/Nav'
 import { Team } from './globals/Team'
@@ -63,7 +64,7 @@ export default buildConfig({
       }
     })
   }),
-  globals: [Homepage, Nav, Team],
+  globals: [Homepage, Nav, Contact, Team],
   collections: [Users, Media, Pages, FormSubmissions],
   editor: lexicalEditor({
     features: ({defaultFeatures}) => [

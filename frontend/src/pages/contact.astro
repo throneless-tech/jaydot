@@ -10,10 +10,14 @@ const result = Astro.getActionResult(actions.formSubmission);
 if (result && !result.data?.errors) {
   return Astro.redirect(`/thank-you`);
 }
+
+// contact page info
+const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/contact?depth=2&draft=false&locale=undefined&trash=false`) // http://localhost:4321/api/posts by default
+const data = await res?.json()
 ---
 
-<DefaultLayout title="Contact">
-  <PageHeader title="Contact us" subtitle="Have a question? Get in touch with us!" bgType="gradient" />
+<DefaultLayout title={data?.title}>
+  <PageHeader title={data?.title} subtitle={data?.subtitle} bgType="gradient" />
   <section class="my-16">
     <div class="container">
     </div>
@@ -77,7 +81,7 @@ if (result && !result.data?.errors) {
         <div class="gap-2xs flex items-center">
           <Icon aria-hidden="true" name="lucide:mail" size={20} class="shrink-0" />
           <p class="text-2xl">
-            <Link href="mailto:info@jaydot.org">info@jaydot.org</Link>
+            <Link href={`mailto:${data?.email}`}>{data?.email}</Link>
           </p>
         </div>
 
@@ -97,54 +101,63 @@ if (result && !result.data?.errors) {
           </p>
         </div> -->
 
-        <div class="gap-2xs flex items-center">
-          <Icon aria-hidden="true" name="lucide:clock" size={20} class="shrink-0" />
-          <p class="text-2xl">
-            <span class="font-bold">Business hours:</span>
-            Monday - Friday, 8:00 AM - 6:00 PM ET
-          </p>
-        </div>
-
+        {data?.hours && (
+          <div class="gap-2xs flex items-center">
+            <Icon aria-hidden="true" name="lucide:clock" size={20} class="shrink-0" />
+            <p class="text-2xl">
+              <span class="font-bold">Business hours:</span>
+              {data.hours}
+            </p>
+          </div>
+        )}
+        
         <ul class="flex flex-wrap gap-2">
-          <li>
-            <Link
-              href="https://www.instagram.com/jaydotllc/"
-              isButton
-              isExternal
-              hideIcon
-              animateOnHover
-              animationType="boop"
-            >
-              <Icon aria-hidden="true" name="lucide:instagram" size={32} />
-              <span class="sr-only">Go to our Instagram, opens in a new tab</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://www.linkedin.com/company/jaydot-llc/"
-              isButton
-              isExternal
-              hideIcon
-              animateOnHover
-              animationType="boop"
-            >
-              <Icon aria-hidden="true" name="lucide:linkedin" size={32} />
-              <span class="sr-only">Go to our LinkedIn page, opens in a new tab</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://www.threads.com/@jaydotllc"
-              isButton
-              isExternal
-              hideIcon
-              animateOnHover
-              animationType="boop"
-            >
-              <Icon aria-hidden="true" name="lucide:at-sign" size={32} />
-              <span class="sr-only">Go to our Threads page, opens in a new tab</span>
-            </Link>
-          </li>
+          {data["social-media"]["instagram-handle"] && (
+            <li>
+              <Link
+                href={`https://www.instagram.com/${data["social-media"]["instagram-handle"]}/`}
+                isButton
+                isExternal
+                hideIcon
+                animateOnHover
+                animationType="boop"
+              >
+                <Icon aria-hidden="true" name="lucide:instagram" size={32} />
+                <span class="sr-only">Go to our Instagram, opens in a new tab</span>
+              </Link>
+            </li>
+          )}
+          {data["social-media"]["linkedin-handle"] && (
+            <li>
+              <Link
+                href={`https://www.linkedin.com/company/${data["social-media"]["linkedin-handle"]}/`}
+                isButton
+                isExternal
+                hideIcon
+                animateOnHover
+                animationType="boop"
+              >
+                <Icon aria-hidden="true" name="lucide:linkedin" size={32} />
+                <span class="sr-only">Go to our LinkedIn page, opens in a new tab</span>
+              </Link>
+            </li>
+            
+          )}
+          {data["social-media"]["threads-handle"] && (
+            <li>
+              <Link
+                href={`https://www.threads.com/@${data["social-media"]["threads-handle"]}`}
+                isButton
+                isExternal
+                hideIcon
+                animateOnHover
+                animationType="boop"
+              >
+                <Icon aria-hidden="true" name="lucide:at-sign" size={32} />
+                <span class="sr-only">Go to our Threads page, opens in a new tab</span>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

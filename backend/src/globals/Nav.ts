@@ -56,16 +56,6 @@ export const Nav: GlobalConfig = {
       ]
     },
     {
-      name: 'social-media',
-      type: 'group',
-      fields: [
-        {
-          name: 'instagram-handle',
-          type: 'text'
-        }
-      ]
-    },
-    {
       name: 'address',
       type: 'group',
       fields: [

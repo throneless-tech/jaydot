@@ -94,11 +94,13 @@ export interface Config {
   globals: {
     homepage: Homepage;
     nav: Nav;
+    contact: Contact;
     team: Team;
   };
   globalsSelect: {
     homepage: HomepageSelect<false> | HomepageSelect<true>;
     nav: NavSelect<false> | NavSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
   };
   locale: null;
@@ -538,12 +540,27 @@ export interface Nav {
     'standout-link-name'?: string | null;
     'standout-link-url'?: string | null;
   };
-  'social-media'?: {
-    'instagram-handle'?: string | null;
-  };
   address?: {
     line1?: string | null;
     line2?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: number;
+  title: string;
+  subtitle: string;
+  email: string;
+  hours?: string | null;
+  'social-media'?: {
+    'instagram-handle'?: string | null;
+    'linkedin-handle'?: string | null;
+    'threads-handle'?: string | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -650,16 +667,31 @@ export interface NavSelect<T extends boolean = true> {
         'standout-link-name'?: T;
         'standout-link-url'?: T;
       };
-  'social-media'?:
-    | T
-    | {
-        'instagram-handle'?: T;
-      };
   address?:
     | T
     | {
         line1?: T;
         line2?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  email?: T;
+  hours?: T;
+  'social-media'?:
+    | T
+    | {
+        'instagram-handle'?: T;
+        'linkedin-handle'?: T;
+        'threads-handle'?: T;
       };
   updatedAt?: T;
   createdAt?: T;
