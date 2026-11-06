@@ -28,9 +28,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
-  csrf: [
-    'http://localhost:3000'
-  ],
+  csrf: [process.env.SERVER_URL || 'http://localhost:3000'],
   admin: {
     user: Users.slug,
     importMap: {
@@ -44,30 +42,38 @@ export default buildConfig({
           type: 'image/png',
           url: '/favicon.png',
         },
-      ]
+      ],
     },
     components: {
       graphics: {
         Logo,
         Icon,
-      }
-    }
+      },
+    },
   },
   email: nodemailerAdapter({
     defaultFromAddress: 'noreply@jaydot.org',
     defaultFromName: 'No reply',
-    transport: nodemailer.createTransport({
-      service: process.env.SMTP_SERVICE,
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587'),
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-      }
-    })
+        pass: process.env.SMTP_PASS,
+      },
+    },
+    // transport: nodemailer.createTransport({
+    //   service: process.env.SMTP_SERVICE,
+    //   auth: {
+    //     user: process.env.SMTP_USER,
+    //     pass: process.env.SMTP_PASS,
+    //   },
+    // }),
   }),
   globals: [Homepage, Nav, Contact, Team],
   collections: [Users, Media, Pages, FormSubmissions],
   editor: lexicalEditor({
-    features: ({defaultFeatures}) => [
+    features: ({ defaultFeatures }) => [
       ...defaultFeatures,
       BlocksFeature({
         blocks: [
@@ -83,18 +89,14 @@ export default buildConfig({
               {
                 name: 'float',
                 type: 'select',
-                options: [
-                  'Center',
-                  'Left',
-                  'Right',
-                ],
+                options: ['Center', 'Left', 'Right'],
                 defaultValue: 'Left',
-              }
-            ]
-          }
-        ]
-      })
-    ]
+              },
+            ],
+          },
+        ],
+      }),
+    ],
   }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -108,7 +110,7 @@ export default buildConfig({
   sharp,
   plugins: [
     vercelBlobStorage({
-      enabled: process.env.NODE_ENV == "production" ? true : false, // Optional, defaults to true
+      enabled: process.env.NODE_ENV == 'production' ? true : false, // Optional, defaults to true
       // Specify which collections should use Vercel Blob
       collections: {
         media: true,

@@ -17,7 +17,7 @@ try {
   const res = await fetch(`${import.meta.env.PUBLIC_API_URL || "https://localhost:3000" }/api/globals/nav?depth=2&draft=false&locale=undefined&trash=false`)
 
   nav = await res?.json()
-} catch (e) {
+} catch (e: any) {
   err = e.message;
 }
 
