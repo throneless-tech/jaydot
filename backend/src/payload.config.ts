@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import nodemailer from 'nodemailer'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 import { Logo } from './graphics/Logo';
 import { Icon } from './graphics/Icon';
@@ -51,24 +52,10 @@ export default buildConfig({
       },
     },
   },
-  email: nodemailerAdapter({
-    defaultFromAddress: 'noreply@jaydot.org',
+  email: resendAdapter({
+    defaultFromAddress: process.env.SMTP_USER || 'noreply@followup.jaydot.org',
     defaultFromName: 'No reply',
-    transportOptions: {
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    },
-    // transport: nodemailer.createTransport({
-    //   service: process.env.SMTP_SERVICE,
-    //   auth: {
-    //     user: process.env.SMTP_USER,
-    //     pass: process.env.SMTP_PASS,
-    //   },
-    // }),
+    apiKey: process.env.RESEND_API_KEY || '',
   }),
   globals: [Homepage, Nav, Contact, Team],
   collections: [Users, Media, Pages, FormSubmissions],
